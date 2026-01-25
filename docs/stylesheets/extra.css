@@ -1,52 +1,48 @@
 /* ============================================================
- * 汽车知识库 - 自定义样式
+ * 汽车知识库 - 专业级自定义样式
  * Automotive Software Architecture Knowledge Base
  * Author: Michael Lin
  * ============================================================ */
 
-/* 顶部公告横幅 */
+/* ==================== 顶部公告横幅 ==================== */
 .md-banner {
-  background: linear-gradient(90deg, #1a237e 0%, #0d47a1 50%, #01579b 100%) !important;
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #01579b 100%) !important;
+  border-bottom: 3px solid #ffeb3b;
 }
 
 .md-banner__inner {
   color: white !important;
   font-weight: 500;
-  padding: 0.6rem 0;
+  padding: 0.8rem 0;
+  font-size: 0.95rem;
 }
 
 .md-banner a {
   color: #ffeb3b !important;
   text-decoration: none;
   font-weight: 700;
-  transition: all 0.2s ease;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 235, 59, 0.15);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-left: 0.5rem;
 }
 
 .md-banner a:hover {
-  text-decoration: underline;
+  background: rgba(255, 235, 59, 0.3);
   color: #fff176 !important;
+  transform: translateX(3px);
 }
 
-/* 页脚社交图标 */
-.md-social__link {
-  transition: transform 0.2s ease;
+.md-banner__button {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.md-social__link:hover {
-  transform: scale(1.2);
+.md-banner__button:hover {
+  color: white !important;
 }
 
-/* 作者卡片响应式 */
-@media screen and (max-width: 768px) {
-  .author-card {
-    padding: 1.5rem !important;
-  }
-  .author-card h3 {
-    font-size: 1.2rem !important;
-  }
-}
-
-/* 徽章样式优化 */
+/* ==================== 徽章样式 ==================== */
 img[alt="ISO 26262"],
 img[alt="ISO 21434"],
 img[alt="AUTOSAR"],
@@ -54,97 +50,295 @@ img[alt="ASPICE"],
 img[alt="ISO 14229"],
 img[alt*="UN R155"] {
   display: inline-block;
-  margin: 4px 4px 4px 0;
+  margin: 6px 6px 6px 0;
   vertical-align: middle;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Mermaid 图表容器 */
+img[alt="ISO 26262"]:hover,
+img[alt="ISO 21434"]:hover,
+img[alt="AUTOSAR"]:hover,
+img[alt="ASPICE"]:hover,
+img[alt="ISO 14229"]:hover,
+img[alt*="UN R155"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ==================== Mermaid 图表 ==================== */
 .mermaid {
   background: transparent !important;
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
-/* 暗黑模式下的 Mermaid 图表 */
+[data-md-color-scheme="default"] .mermaid {
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%) !important;
+  border: 1px solid #e0e0e0;
+}
+
 [data-md-color-scheme="slate"] .mermaid {
-  filter: invert(0.9) hue-rotate(180deg);
+  background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%) !important;
+  border: 1px solid #424242;
 }
 
-/* 表格样式优化 */
+/* ==================== 表格样式 ==================== */
 .md-typeset table:not([class]) {
-  font-size: 0.75rem;
-  border: 1px solid var(--md-typeset-table-color);
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .md-typeset table:not([class]) th {
-  background-color: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
+  background: linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-accent-fg-color) 100%);
+  color: white;
   font-weight: 600;
-}
-
-/* 代码块标题 */
-.md-typeset pre > code {
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
   font-size: 0.75rem;
+  letter-spacing: 0.5px;
 }
 
-/* 层级标题样式 */
+.md-typeset table:not([class]) td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.md-typeset table:not([class]) tr:hover td {
+  background: rgba(var(--md-primary-fg-color--rgb), 0.05);
+}
+
+/* ==================== 代码块 ==================== */
+.md-typeset pre {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.md-typeset pre > code {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* ==================== 标题样式 ==================== */
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
 .md-typeset h2 {
-  border-bottom: 2px solid var(--md-primary-fg-color);
-  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--md-primary-fg-color);
+  padding-bottom: 0.6rem;
+  margin-top: 2.5rem;
 }
 
 .md-typeset h3 {
   color: var(--md-primary-fg-color);
+  font-weight: 600;
 }
 
-/* 项目结构代码块 */
-.md-typeset pre:has(code:not([class])) {
-  background-color: var(--md-code-bg-color);
-  border-left: 4px solid var(--md-primary-fg-color);
+/* ==================== Admonition 提示块 ==================== */
+.md-typeset .admonition {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* 引用块样式 */
+.md-typeset .admonition-title {
+  font-weight: 600;
+}
+
+/* ==================== 引用块 ==================== */
 .md-typeset blockquote {
   border-left: 4px solid var(--md-primary-fg-color);
-  padding-left: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(var(--md-primary-fg-color--rgb), 0.05);
+  border-radius: 0 8px 8px 0;
   font-style: italic;
-  color: var(--md-default-fg-color--light);
+  margin: 1.5rem 0;
 }
 
-/* 复选框列表 */
-.md-typeset .task-list-item input[type="checkbox"] {
-  margin-right: 0.5rem;
+.md-typeset blockquote p {
+  margin: 0;
 }
 
-/* 响应式表格 */
+/* ==================== 页脚社交图标 ==================== */
+.md-social {
+  padding: 1rem 0;
+}
+
+.md-social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  margin: 0 0.3rem;
+}
+
+.md-social__link:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.md-social__link svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* ==================== 作者卡片 ==================== */
+.author-card {
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%) !important;
+  border-top: 4px solid #ffeb3b;
+}
+
+.author-card h3 {
+  color: white !important;
+  margin: 0;
+}
+
+.author-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.author-card a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ==================== 导航栏 ==================== */
+.md-header {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.md-tabs {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.md-tabs__link {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.md-tabs__link:hover {
+  opacity: 1;
+}
+
+.md-tabs__link--active {
+  border-bottom: 3px solid #ffeb3b;
+}
+
+/* ==================== 外部链接标识 ==================== */
+a[href^="http"]:not([href*="michaellinhq.github.io"]):not([href*="github.com/michaellinhq"])::after {
+  content: " ↗";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* ==================== 微信弹窗 ==================== */
+#wechat-modal {
+  backdrop-filter: blur(5px);
+}
+
+#wechat-modal > div {
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==================== 响应式优化 ==================== */
 @media screen and (max-width: 768px) {
+  .md-banner__inner {
+    font-size: 0.85rem;
+    padding: 0.6rem 0;
+  }
+  
   .md-typeset table:not([class]) {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
   
   .md-typeset table:not([class]) th,
   .md-typeset table:not([class]) td {
-    padding: 0.4rem;
+    padding: 0.5rem;
+  }
+  
+  .author-card {
+    padding: 1.5rem !important;
+  }
+  
+  .author-card h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  .author-card p {
+    font-size: 0.85rem !important;
   }
 }
 
-/* 页脚样式 */
-.md-footer-copyright {
-  font-style: italic;
+/* ==================== 打印样式 ==================== */
+@media print {
+  .md-banner,
+  .author-card,
+  .md-social,
+  #wechat-modal {
+    display: none !important;
+  }
 }
 
-/* 导航标签图标 */
-.md-nav__item--nested > .md-nav__link::before {
-  content: "📁 ";
+/* ==================== 滚动条美化 ==================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* 内容区域最大宽度 */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-accent-fg-color) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-primary-fg-color);
+}
+
+/* ==================== 页面加载动画 ==================== */
 .md-content {
-  max-width: 100%;
+  animation: contentFadeIn 0.5s ease;
 }
 
-/* 代码高亮行号 */
-.md-typeset .highlight .linenos {
-  padding-right: 1rem;
-  color: var(--md-default-fg-color--light);
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
