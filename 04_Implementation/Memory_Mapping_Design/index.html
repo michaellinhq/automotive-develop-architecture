@@ -1407,7 +1407,7 @@
 </tbody>
 </table>
 <h3 id="memmap-autosar">MemMap 在 AUTOSAR 中的位置<a class="headerlink" href="#memmap-autosar" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph SWC_Layer["SWC 层"]
         SWC1["SWC_Safety&lt;br/&gt;(ASIL D)"]
         SWC2["SWC_Diag&lt;br/&gt;(QM)"]
@@ -1444,11 +1444,11 @@
     Linker --&gt; Memory
 
     style MEMMAP fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style LD fill:#fff3e0,stroke:#f57c00,stroke-width:2px</code></pre>
+    style LD fill:#fff3e0,stroke:#f57c00,stroke-width:2px</div>
 <hr />
 <h2 id="memmaph">MemMap.h 工作原理<a class="headerlink" href="#memmaph" title="Permanent link">&para;</a></h2>
 <h3 id="_2">宏定义机制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph Source["源代码"]
         S1["#define XXX_START_SEC_CODE"]
         S2["#include &lt;MemMap.h&gt;"]
@@ -1468,7 +1468,7 @@
         O2["函数放入指定段"]
     end
 
-    Source --&gt; MemMap --&gt; Output</code></pre>
+    Source --&gt; MemMap --&gt; Output</div>
 <h3 id="memmaph_1">MemMap.h 实现示例<a class="headerlink" href="#memmaph_1" title="Permanent link">&para;</a></h3>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* ============================================================</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * File: MemMap.h</span>
@@ -1651,7 +1651,7 @@
 <hr />
 <h2 id="_4">链接器脚本设计<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="flash">Flash 内存布局<a class="headerlink" href="#flash" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Flash["Flash Memory (2 MB)"]
         direction TB
 
@@ -1684,9 +1684,9 @@
     style Sector3 fill:#ffcdd2,stroke:#c62828
     style Sector4 fill:#fff9c4,stroke:#f9a825
     style Sector6 fill:#c8e6c9,stroke:#388e3c
-    style Sector11 fill:#c8e6c9,stroke:#388e3c</code></pre>
+    style Sector11 fill:#c8e6c9,stroke:#388e3c</div>
 <h3 id="ram">RAM 内存布局<a class="headerlink" href="#ram" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph RAM["RAM Memory (256 KB)"]
         direction TB
 
@@ -1719,7 +1719,7 @@
     style RAM_ASILD fill:#ffcdd2,stroke:#c62828,stroke-width:2px
     style RAM_ASILB fill:#fff9c4,stroke:#f9a825
     style RAM_QM fill:#c8e6c9,stroke:#388e3c
-    style RAM_SHARED fill:#e0e0e0,stroke:#757575</code></pre>
+    style RAM_SHARED fill:#e0e0e0,stroke:#757575</div>
 <h3 id="gnu-ld">GNU LD 链接器脚本<a class="headerlink" href="#gnu-ld" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/* ============================================================
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> * File: linker_script.ld
@@ -2049,7 +2049,7 @@
 </span></code></pre></div>
 <hr />
 <h2 id="_5">内存段映射总图<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph SourceCode["📝 源代码"]
         direction LR
         CODE1["Ecu_Safety.c"]
@@ -2098,7 +2098,7 @@
 
     style MemMap fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     style Linker fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style Memory fill:#e8f5e9,stroke:#388e3c,stroke-width:2px</code></pre>
+    style Memory fill:#e8f5e9,stroke:#388e3c,stroke-width:2px</div>
 <hr />
 <h2 id="_6">验证与调试<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="map">Map 文件分析<a class="headerlink" href="#map" title="Permanent link">&para;</a></h3>
@@ -2261,9 +2261,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

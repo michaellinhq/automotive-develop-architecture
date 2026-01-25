@@ -1456,7 +1456,7 @@
 <p>本文档概述硬件可靠性分析方法在汽车功能安全中的应用，重点介绍 FTA（故障树分析）和 FMEA/FMEDA（失效模式分析）在硬件度量计算中的作用。</p>
 </blockquote>
 <h2 id="_1">方法论概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph TopDown["⬇️ 自顶向下方法"]
         FTA["FTA&lt;br/&gt;故障树分析&lt;br/&gt;Fault Tree Analysis"]
     end
@@ -1479,7 +1479,7 @@
     style FTA fill:#e3f2fd,stroke:#1976d2
     style FMEA fill:#fff3e0,stroke:#f57c00
     style FMEDA fill:#e8f5e9,stroke:#388e3c
-    style Metrics fill:#fce4ec,stroke:#c2185b</code></pre>
+    style Metrics fill:#fce4ec,stroke:#c2185b</div>
 <hr />
 <h2 id="fta-">FTA - 故障树分析<a class="headerlink" href="#fta-" title="Permanent link">&para;</a></h2>
 <h3 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -1488,7 +1488,7 @@
 - 逐层分解导致顶层事件的原因
 - 使用逻辑门（AND/OR）建立因果关系</p>
 <h3 id="fta">FTA 符号说明<a class="headerlink" href="#fta" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Gates["逻辑门"]
         OR_Gate["OR 门&lt;br/&gt;任一输入发生&lt;br/&gt;→ 输出发生"]
         AND_Gate["AND 门&lt;br/&gt;所有输入发生&lt;br/&gt;→ 输出发生"]
@@ -1499,9 +1499,9 @@
         INT["中间事件&lt;br/&gt;（子系统失效）"]
         BASE["基本事件&lt;br/&gt;（组件失效）"]
         UNDEV["未展开事件&lt;br/&gt;（待分析）"]
-    end</code></pre>
+    end</div>
 <h3 id="fta-aeb">FTA 示例 - AEB 系统失效<a class="headerlink" href="#fta-aeb" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     TOP["🔴 AEB 功能失效&lt;br/&gt;（顶层事件）"]
 
     TOP --&gt; OR1{OR}
@@ -1526,7 +1526,7 @@
     style TOP fill:#ffcdd2,stroke:#c62828
     style INT1 fill:#fff9c4,stroke:#f9a825
     style INT2 fill:#fff9c4,stroke:#f9a825
-    style INT3 fill:#fff9c4,stroke:#f9a825</code></pre>
+    style INT3 fill:#fff9c4,stroke:#f9a825</div>
 <h3 id="fta_1">FTA 核心概念<a class="headerlink" href="#fta_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1589,7 +1589,7 @@
 - 分析每种失效模式对系统的影响
 - 评估严重度、发生度和探测度</p>
 <h3 id="fmea">FMEA 过程流程<a class="headerlink" href="#fmea" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph Input["输入"]
         I1["系统架构"]
         I2["组件清单"]
@@ -1613,7 +1613,7 @@
         O3["改进措施"]
     end
 
-    Input --&gt; Analysis --&gt; Output</code></pre>
+    Input --&gt; Analysis --&gt; Output</div>
 <h3 id="fmea_1">FMEA 评估维度<a class="headerlink" href="#fmea_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1729,7 +1729,7 @@
 </tbody>
 </table>
 <h3 id="fmeda">FMEDA 失效分类<a class="headerlink" href="#fmeda" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TD
+<div class="mermaid">flowchart TD
     FM["组件失效模式&lt;br/&gt;Failure Mode"]
 
     FM --&gt; Q1{是否违反&lt;br/&gt;安全目标?}
@@ -1752,7 +1752,7 @@
     style DETECTED fill:#fff9c4,stroke:#f9a825
     style RESIDUAL fill:#ffe0b2,stroke:#f57c00
     style MPF fill:#ffccbc,stroke:#e64a19
-    style SPF fill:#ffcdd2,stroke:#c62828</code></pre>
+    style SPF fill:#ffcdd2,stroke:#c62828</div>
 <h3 id="_5">失效率分配<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1799,7 +1799,7 @@
 <hr />
 <h2 id="iso-26262">ISO 26262 硬件度量<a class="headerlink" href="#iso-26262" title="Permanent link">&para;</a></h2>
 <h3 id="_6">三大硬件度量<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph SPFM_Calc["SPFM 单点故障度量"]
         SPFM_F["SPFM = 1 - (λ_SPF + λ_RF) / λ_total"]
     end
@@ -1810,7 +1810,7 @@
 
     subgraph PMHF_Calc["PMHF 概率硬件失效度量"]
         PMHF_F["PMHF = Σ(失效概率贡献)"]
-    end</code></pre>
+    end</div>
 <h3 id="iso-26262-5">度量目标值 (ISO 26262-5)<a class="headerlink" href="#iso-26262-5" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1876,7 +1876,7 @@
 </table>
 <hr />
 <h2 id="fta-fmeafmeda">FTA 与 FMEA/FMEDA 协同应用<a class="headerlink" href="#fta-fmeafmeda" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph FTA_Role["FTA 的作用"]
         F1["识别系统级失效路径"]
         F2["确定最小割集"]
@@ -1900,7 +1900,7 @@
     FTA_Role --&gt; Integration
     FMEDA_Role --&gt; Integration
 
-    Integration --&gt; Result["硬件安全完整性评估"]</code></pre>
+    Integration --&gt; Result["硬件安全完整性评估"]</div>
 <h3 id="_8">分析流程建议<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2067,9 +2067,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

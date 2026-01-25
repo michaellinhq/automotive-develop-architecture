@@ -1383,7 +1383,7 @@
 <p><strong>事故不仅仅是组件失效的结果，更是控制结构不充分的结果。</strong></p>
 </blockquote>
 <h3 id="stpa-">STPA 控制回路图 - 通用模型<a class="headerlink" href="#stpa-" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Controller["🎮 控制器 (Controller)"]
         direction TB
         PM["过程模型&lt;br/&gt;Process Model"]
@@ -1422,9 +1422,9 @@
     style Actuator fill:#fff3e0,stroke:#f57c00
     style Process fill:#e8f5e9,stroke:#388e3c
     style Sensor fill:#fce4ec,stroke:#c2185b
-    style UCA fill:#ffebee,stroke:#c62828</code></pre>
+    style UCA fill:#ffebee,stroke:#c62828</div>
 <h3 id="stpa_2">STPA 分析步骤<a class="headerlink" href="#stpa_2" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph Step1["Step 1: 定义分析目的"]
         S1A[识别系统级损失]
         S1B[识别系统级危害]
@@ -1451,9 +1451,9 @@
         S4D[过程模型致因]
     end
 
-    Step1 --&gt; Step2 --&gt; Step3 --&gt; Step4</code></pre>
+    Step1 --&gt; Step2 --&gt; Step3 --&gt; Step4</div>
 <h3 id="adas-stpa">ADAS 系统 STPA 控制结构示例<a class="headerlink" href="#adas-stpa" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Environment["🌍 外部环境"]
         OBJ["目标物体&lt;br/&gt;(车辆/行人)"]
         ROAD["道路环境"]
@@ -1507,7 +1507,7 @@
 
     style ADAS_Controller fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     style Perception fill:#fff3e0,stroke:#f57c00
-    style Actuation fill:#e8f5e9,stroke:#388e3c</code></pre>
+    style Actuation fill:#e8f5e9,stroke:#388e3c</div>
 <h3 id="uca">UCA 分析表模板<a class="headerlink" href="#uca" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1546,7 +1546,7 @@
 <hr />
 <h2 id="hara-vs-tara">HARA vs TARA 对比分析<a class="headerlink" href="#hara-vs-tara" title="Permanent link">&para;</a></h2>
 <h3 id="_2">输入输出映射图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Inputs["📥 共同输入"]
         I1["系统定义 &amp; 边界"]
         I2["功能描述"]
@@ -1596,7 +1596,7 @@
     TARA_Process --&gt; TARA_Outputs
 
     style HARA_Process fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-    style TARA_Process fill:#fff3e0,stroke:#f57c00,stroke-width:2px</code></pre>
+    style TARA_Process fill:#fff3e0,stroke:#f57c00,stroke-width:2px</div>
 <h3 id="_3">关键概念对比<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1730,7 +1730,7 @@
 </tbody>
 </table>
 <h3 id="hara-tara">HARA-TARA 关联场景<a class="headerlink" href="#hara-tara" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph Scenario["场景: 自动紧急制动失效"]
         direction TB
         FUNC["功能失效&lt;br/&gt;(HARA视角)"]
@@ -1761,10 +1761,10 @@
     subgraph Integration["🔗 综合安全需求"]
         INT1["需同时满足 ASIL D 和 CAL 4"]
         INT2["安全机制需抵抗故障+攻击"]
-    end</code></pre>
+    end</div>
 <hr />
 <h2 id="_5">分析方法选择指南<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TD
+<div class="mermaid">flowchart TD
     Start[开始分析] --&gt; Q1{分析目标?}
 
     Q1 --&gt;|功能安全合规| HARA
@@ -1783,7 +1783,7 @@
     STPA --&gt; Q4{需要合规评级?}
     Q4 --&gt;|功能安全| HARA_S[HARA 补充]
     Q4 --&gt;|网络安全| TARA_S[TARA 补充]
-    Q4 --&gt;|否| STPA_Done[完成 STPA]</code></pre>
+    Q4 --&gt;|否| STPA_Done[完成 STPA]</div>
 <h3 id="_6">方法协同应用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1973,9 +1973,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

@@ -1203,7 +1203,7 @@
 <p>本文档展示 Automotive SPICE V模型的完整架构，将 SYS (系统工程) 和 SWE (软件工程) 过程域映射到设计侧（左）与验证侧（右）。</p>
 </blockquote>
 <h2 id="v-model">V-Model 整体架构<a class="headerlink" href="#v-model" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5fe', 'primaryTextColor': '#01579b', 'primaryBorderColor': '#0288d1', 'lineColor': '#0288d1', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+<div class="mermaid">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5fe', 'primaryTextColor': '#01579b', 'primaryBorderColor': '#0288d1', 'lineColor': '#0288d1', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
 flowchart TB
     subgraph Level1["📋 Level 1: 法规与标准层"]
         direction LR
@@ -1277,7 +1277,7 @@ flowchart TB
 
     style Level1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     style LeftSide fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-    style RightSide fill:#fff3e0,stroke:#f57c00,stroke-width:2px</code></pre>
+    style RightSide fill:#fff3e0,stroke:#f57c00,stroke-width:2px</div>
 <h2 id="_1">过程域详细映射表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="sys">系统工程过程域 (SYS)<a class="headerlink" href="#sys" title="Permanent link">&para;</a></h3>
 <table>
@@ -1385,7 +1385,7 @@ flowchart TB
 </tbody>
 </table>
 <h2 id="_2">层级关系说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph 抽象层级
         L1[Level 1&lt;br/&gt;法规/标准] --&gt; L2[Level 2&lt;br/&gt;系统分析]
         L2 --&gt; L3[Level 3&lt;br/&gt;架构设计]
@@ -1405,7 +1405,7 @@ flowchart TB
     style L2 fill:#e8f5e9
     style L3 fill:#fff9c4
     style L4 fill:#ffe0b2
-    style L5 fill:#ffccbc</code></pre>
+    style L5 fill:#ffccbc</div>
 <h2 id="_3">双向追溯性要求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>V模型的核心原则是 <strong>双向追溯性 (Bidirectional Traceability)</strong>：</p>
 <ol>
@@ -1500,9 +1500,9 @@ flowchart TB
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../javascripts/mermaid-init.js"></script>
+        <script src="../javascripts/mermaid.js"></script>
       
     
   </body>

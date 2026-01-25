@@ -1484,7 +1484,7 @@
 <hr />
 <h2 id="cpap">CP/AP 混合通信架构图<a class="headerlink" href="#cpap" title="Permanent link">&para;</a></h2>
 <h3 id="_2">整体系统架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Vehicle["🚗 整车架构"]
         direction TB
 
@@ -1577,11 +1577,11 @@
     style Hypervisor fill:#fff3e0,stroke:#f57c00
     style VM_AP fill:#e8f5e9,stroke:#388e3c
     style VM_CP fill:#fff9c4,stroke:#f9a825
-    style VM_Safety fill:#ffcdd2,stroke:#c62828</code></pre>
+    style VM_Safety fill:#ffcdd2,stroke:#c62828</div>
 <hr />
 <h2 id="someip">SOME/IP 通信机制<a class="headerlink" href="#someip" title="Permanent link">&para;</a></h2>
 <h3 id="someip_1">SOME/IP 协议栈位置<a class="headerlink" href="#someip_1" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph AP_Stack["Adaptive Platform"]
         direction TB
         APP_AP["Application Layer"]
@@ -1609,9 +1609,9 @@
     ETH_AP &lt;-.-&gt;|"SOME/IP Messages"| ETH_CP
 
     style AP_Stack fill:#e8f5e9,stroke:#388e3c
-    style CP_Stack fill:#fff9c4,stroke:#f9a825</code></pre>
+    style CP_Stack fill:#fff9c4,stroke:#f9a825</div>
 <h3 id="someip_2">SOME/IP 服务发现流程<a class="headerlink" href="#someip_2" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     participant Server as Service Provider&lt;br/&gt;(AP/CP)
     participant SD as SOME/IP-SD&lt;br/&gt;(Multicast)
     participant Client as Service Consumer&lt;br/&gt;(AP/CP)
@@ -1637,7 +1637,7 @@
     Server-&gt;&gt;Client: Response
 
     Server-&gt;&gt;Client: Event Notification
-    Server-&gt;&gt;Client: Event Notification</code></pre>
+    Server-&gt;&gt;Client: Event Notification</div>
 <h3 id="someip_3">SOME/IP 消息格式<a class="headerlink" href="#someip_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1703,7 +1703,7 @@
 <hr />
 <h2 id="dds">DDS 集成与映射<a class="headerlink" href="#dds" title="Permanent link">&para;</a></h2>
 <h3 id="dds-ap">DDS 在 AP 中的位置<a class="headerlink" href="#dds-ap" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph AP_DDS["Adaptive Platform with DDS"]
         direction TB
 
@@ -1742,7 +1742,7 @@
     end
 
     style DDS_Stack fill:#e1f5fe,stroke:#0288d1
-    style Binding fill:#fff3e0,stroke:#f57c00</code></pre>
+    style Binding fill:#fff3e0,stroke:#f57c00</div>
 <h3 id="someip-vs-dds">SOME/IP vs DDS 对比<a class="headerlink" href="#someip-vs-dds" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1835,7 +1835,7 @@
 <hr />
 <h2 id="hypervisor">Hypervisor 隔离机制<a class="headerlink" href="#hypervisor" title="Permanent link">&para;</a></h2>
 <h3 id="type-1-hypervisor">Type-1 Hypervisor 架构<a class="headerlink" href="#type-1-hypervisor" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Hardware["🔧 硬件平台"]
         CPU["多核 CPU&lt;br/&gt;(ARM/x86)"]
         MEM["物理内存"]
@@ -1878,7 +1878,7 @@
     style VM1 fill:#ffcdd2,stroke:#c62828
     style VM2 fill:#e8f5e9,stroke:#388e3c
     style VM3 fill:#e3f2fd,stroke:#1976d2
-    style Hypervisor fill:#fff3e0,stroke:#f57c00,stroke-width:2px</code></pre>
+    style Hypervisor fill:#fff3e0,stroke:#f57c00,stroke-width:2px</div>
 <h3 id="_3">隔离机制层次<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1917,7 +1917,7 @@
 </tbody>
 </table>
 <h3 id="inter-vm-communication">虚拟机间通信 (Inter-VM Communication)<a class="headerlink" href="#inter-vm-communication" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph VM_A["VM A (AP)"]
         APP_A["Application"]
         VIRTIO_A["VirtIO Driver"]
@@ -1945,11 +1945,11 @@
     VSWITCH -.-&gt;|"管理"| SHM
     VSWITCH -.-&gt;|"管理"| DOORBELL
 
-    style Hypervisor fill:#fff3e0,stroke:#f57c00</code></pre>
+    style Hypervisor fill:#fff3e0,stroke:#f57c00</div>
 <hr />
 <h2 id="mpu-spatial-isolation">MPU 内存隔离方案 (Spatial Isolation)<a class="headerlink" href="#mpu-spatial-isolation" title="Permanent link">&para;</a></h2>
 <h3 id="asil-d-qm">ASIL D 与 QM 共存架构<a class="headerlink" href="#asil-d-qm" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph CPU_Core["CPU Core with MPU"]
         direction TB
 
@@ -1988,7 +1988,7 @@
     style ASIL_D_Region fill:#ffcdd2,stroke:#c62828
     style ASIL_B_Region fill:#fff9c4,stroke:#f9a825
     style QM_Region fill:#c8e6c9,stroke:#388e3c
-    style Shared_Region fill:#e0e0e0,stroke:#757575</code></pre>
+    style Shared_Region fill:#e0e0e0,stroke:#757575</div>
 <h3 id="mpu">MPU 内存隔离配置表<a class="headerlink" href="#mpu" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2156,7 +2156,7 @@
 <p><strong>说明</strong>: "-" 表示无访问权限，MPU 违规将触发异常</p>
 </blockquote>
 <h3 id="freedom-from-interference-ffi">Freedom from Interference (FFI) 实现<a class="headerlink" href="#freedom-from-interference-ffi" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph FFI["Freedom from Interference 机制"]
         direction TB
 
@@ -2189,7 +2189,7 @@
 
     style Spatial fill:#ffcdd2,stroke:#c62828
     style Temporal fill:#fff9c4,stroke:#f9a825
-    style Communication fill:#c8e6c9,stroke:#388e3c</code></pre>
+    style Communication fill:#c8e6c9,stroke:#388e3c</div>
 <h3 id="asil">ASIL 分解与隔离策略<a class="headerlink" href="#asil" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2266,7 +2266,7 @@
 </table>
 <hr />
 <h2 id="_5">总结：混合架构设计要点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>mindmap
+<div class="mermaid">mindmap
   root((CP/AP 混合架构))
     通信
       SOME/IP
@@ -2292,7 +2292,7 @@
     安全
       ASIL D on CP
       ASIL B on AP
-      安全监控 VM</code></pre>
+      安全监控 VM</div>
 <hr />
 <p><em>最后更新: 2026-01-25</em></p>
 
@@ -2366,9 +2366,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

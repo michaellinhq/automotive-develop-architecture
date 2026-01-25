@@ -1433,7 +1433,7 @@
 <hr />
 <h2 id="autosar">AUTOSAR 模块架构<a class="headerlink" href="#autosar" title="Permanent link">&para;</a></h2>
 <h3 id="_3">涉及模块<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Application["应用层"]
         DIAG_APP["诊断应用"]
     end
@@ -1473,11 +1473,11 @@
 
     style DCM fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     style Callout fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style CSM fill:#e8f5e9,stroke:#388e3c</code></pre>
+    style CSM fill:#e8f5e9,stroke:#388e3c</div>
 <hr />
 <h2 id="_4">完整调用栈序列图<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="phase-1-request-seed-0x27-0x01">Phase 1: Request Seed (0x27 0x01)<a class="headerlink" href="#phase-1-request-seed-0x27-0x01" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     autonumber
     participant Tester as 🔧 Tester
     participant CanIf as CanIf
@@ -1552,9 +1552,9 @@
         PduR-&gt;&gt;CanIf: CanIf_Transmit()
 
         CanIf-&gt;&gt;Tester: CAN Frame&lt;br/&gt;[67 01 XX XX XX XX]
-    end</code></pre>
+    end</div>
 <h3 id="phase-2-send-key-0x27-0x02">Phase 2: Send Key (0x27 0x02)<a class="headerlink" href="#phase-2-send-key-0x27-0x02" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     autonumber
     participant Tester as 🔧 Tester
     participant CanIf as CanIf
@@ -1637,7 +1637,7 @@
             CanIf-&gt;&gt;Tester: [7F 27 36]
             Note over Dcm: 启动安全延时定时器
         end
-    end</code></pre>
+    end</div>
 <hr />
 <h2 id="callout">Callout 函数实现<a class="headerlink" href="#callout" title="Permanent link">&para;</a></h2>
 <h3 id="dcm_getseed">Dcm_GetSeed 实现模板<a class="headerlink" href="#dcm_getseed" title="Permanent link">&para;</a></h3>
@@ -1851,7 +1851,7 @@
 <hr />
 <h2 id="_5">状态机设计<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="security-access_1">Security Access 状态机<a class="headerlink" href="#security-access_1" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>stateDiagram-v2
+<div class="mermaid">stateDiagram-v2
     [*] --&gt; Locked: 初始状态
 
     Locked --&gt; WaitForKey: requestSeed&lt;br/&gt;生成 Seed 成功
@@ -1868,7 +1868,7 @@
     Unlocked --&gt; Locked: 会话超时/复位
     Unlocked --&gt; Unlocked: 已解锁&lt;br/&gt;Seed = 0x00...
 
-    note right of Delayed: 安全延时状态&lt;br/&gt;防止暴力攻击</code></pre>
+    note right of Delayed: 安全延时状态&lt;br/&gt;防止暴力攻击</div>
 <h3 id="nrc">否定响应码 (NRC)<a class="headerlink" href="#nrc" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2056,9 +2056,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

@@ -1628,7 +1628,7 @@
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>核心目标: 建立网络安全管理体系
 </span></code></pre></div>
 <h3 id="csms">CSMS 管理边界<a class="headerlink" href="#csms" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TD
+<div class="mermaid">flowchart TD
     subgraph CSMS["网络安全管理系统"]
         A[风险识别] --&gt; B[风险评估]
         B --&gt; C[风险处置]
@@ -1642,7 +1642,7 @@
         S3[后生产阶段安全]
     end
 
-    CSMS --&gt; Scope</code></pre>
+    CSMS --&gt; Scope</div>
 <h3 id="_9">系统边界约束<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1857,7 +1857,7 @@
 </table>
 <hr />
 <h2 id="_15">法规间关联矩阵<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph FunctionalSafety["功能安全域"]
         R79[R79 转向]
         R152[R152 AEBS]
@@ -1875,7 +1875,7 @@
     R171 --&gt;|感知系统| R155
 
     ISO26262[ISO 26262] -.-&gt;|功能安全标准| FunctionalSafety
-    ISO21434[ISO 21434] -.-&gt;|网络安全标准| Cybersecurity</code></pre>
+    ISO21434[ISO 21434] -.-&gt;|网络安全标准| Cybersecurity</div>
 <h2 id="_16">合规检查清单<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2011,9 +2011,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

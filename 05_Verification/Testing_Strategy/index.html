@@ -1482,7 +1482,7 @@
 <p>本文档定义基于 ASPICE SWE.5/SWE.6 和 ISO 26262 Part 6 的分层测试策略，按 ASIL 等级推荐验证方法与工具链。</p>
 </blockquote>
 <h2 id="v-model">V-Model 右侧映射<a class="headerlink" href="#v-model" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart RL
+<div class="mermaid">flowchart RL
     subgraph Design["⬇️ 设计侧"]
         SWE1["SWE.1&lt;br/&gt;软件需求"]
         SWE2["SWE.2&lt;br/&gt;软件架构"]
@@ -1507,7 +1507,7 @@
 
     style SWE4_T fill:#e3f2fd,stroke:#1976d2
     style SWE5 fill:#fff3e0,stroke:#f57c00
-    style SWE6 fill:#e8f5e9,stroke:#388e3c</code></pre>
+    style SWE6 fill:#e8f5e9,stroke:#388e3c</div>
 <hr />
 <h2 id="aspice">ASPICE 测试过程域<a class="headerlink" href="#aspice" title="Permanent link">&para;</a></h2>
 <h3 id="swe4-">SWE.4 - 软件单元验证<a class="headerlink" href="#swe4-" title="Permanent link">&para;</a></h3>
@@ -1727,7 +1727,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph Coverage["覆盖率层次"]
         SC["语句覆盖&lt;br/&gt;(Statement)"]
         BC["分支覆盖&lt;br/&gt;(Branch)"]
@@ -1739,7 +1739,7 @@
 
     style SC fill:#c8e6c9
     style BC fill:#fff9c4
-    style MCDC fill:#ffcdd2</code></pre>
+    style MCDC fill:#ffcdd2</div>
 <h3 id="mcdc">MC/DC 覆盖率说明<a class="headerlink" href="#mcdc" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1928,7 +1928,7 @@
 <hr />
 <h2 id="_2">故障注入测试策略<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">故障注入分类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph FaultInjection["故障注入技术"]
         direction TB
 
@@ -1955,7 +1955,7 @@
 
     style HW_Level fill:#ffcdd2,stroke:#c62828
     style SW_Level fill:#fff9c4,stroke:#f9a825
-    style Msg_Level fill:#c8e6c9,stroke:#388e3c</code></pre>
+    style Msg_Level fill:#c8e6c9,stroke:#388e3c</div>
 <h3 id="_4">故障注入测试用例矩阵<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2112,7 +2112,7 @@
 </tbody>
 </table>
 <h3 id="cicd">CI/CD 集成架构<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph Dev["开发环境"]
         CODE["源代码"]
         TEST["测试用例"]
@@ -2142,11 +2142,11 @@
     Artifact --&gt; HIL
 
     style CI fill:#e3f2fd,stroke:#1976d2
-    style HIL fill:#fff3e0,stroke:#f57c00</code></pre>
+    style HIL fill:#fff3e0,stroke:#f57c00</div>
 <hr />
 <h2 id="_8">追溯性矩阵<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <h3 id="_9">双向追溯要求<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Forward["向前追溯"]
         REQ["需求"] --&gt; DESIGN["设计"] --&gt; CODE["代码"] --&gt; TEST["测试"]
     end
@@ -2155,7 +2155,7 @@
         TEST_B["测试结果"] --&gt; CODE_B["代码变更"] --&gt; DESIGN_B["设计决策"] --&gt; REQ_B["需求来源"]
     end
 
-    Forward &lt;-.-&gt;|"双向"| Backward</code></pre>
+    Forward &lt;-.-&gt;|"双向"| Backward</div>
 <h3 id="_10">追溯矩阵模板<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2206,7 +2206,7 @@
 <hr />
 <h2 id="_11">测试环境架构<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <h3 id="_12">多级测试环境<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph MIL["MIL (Model-in-the-Loop)"]
         MODEL["Simulink/Stateflow 模型"]
         MIL_TEST["模型级测试"]
@@ -2243,7 +2243,7 @@
     style SIL fill:#e3f2fd,stroke:#1976d2
     style PIL fill:#fff9c4,stroke:#f9a825
     style HIL fill:#ffe0b2,stroke:#f57c00
-    style VIL fill:#ffcdd2,stroke:#c62828</code></pre>
+    style VIL fill:#ffcdd2,stroke:#c62828</div>
 <h3 id="_13">测试环境适用性<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2488,9 +2488,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

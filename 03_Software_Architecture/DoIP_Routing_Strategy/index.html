@@ -1480,7 +1480,7 @@
 </blockquote>
 <h2 id="doip_1">DoIP 协议概述<a class="headerlink" href="#doip_1" title="Permanent link">&para;</a></h2>
 <h3 id="_1">协议栈位置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph OSI["OSI 参考模型"]
         direction TB
         L7["应用层&lt;br/&gt;UDS (ISO 14229)"]
@@ -1503,7 +1503,7 @@
     end
 
     style L5 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style L7 fill:#e8f5e9,stroke:#388e3c</code></pre>
+    style L7 fill:#e8f5e9,stroke:#388e3c</div>
 <h3 id="doip_2">DoIP 报文头格式<a class="headerlink" href="#doip_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1611,7 +1611,7 @@
 <hr />
 <h2 id="doip_3">DoIP 网络拓扑<a class="headerlink" href="#doip_3" title="Permanent link">&para;</a></h2>
 <h3 id="doip_4">典型车载 DoIP 架构<a class="headerlink" href="#doip_4" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph External["🔧 外部诊断环境"]
         TESTER["诊断仪&lt;br/&gt;(Tester)"]
     end
@@ -1648,11 +1648,11 @@
     EDGE &lt;--&gt; CAM &amp; LIDAR &amp; RADAR
 
     style EDGE fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style TESTER fill:#e3f2fd,stroke:#1976d2</code></pre>
+    style TESTER fill:#e3f2fd,stroke:#1976d2</div>
 <hr />
 <h2 id="_2">完整诊断会话序列图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="phase-1-tcp-doip">Phase 1: TCP 握手与 DoIP 连接建立<a class="headerlink" href="#phase-1-tcp-doip" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     autonumber
     participant Tester as 🔧 Tester&lt;br/&gt;(外部诊断仪)
     participant OBD as 📍 OBD Port&lt;br/&gt;(Physical Entry)
@@ -1677,9 +1677,9 @@
         Tester-&gt;&gt;Edge: DoIP Vehicle Identification Request&lt;br/&gt;(Payload Type: 0x0001)
 
         Edge-&gt;&gt;Tester: DoIP Vehicle Identification Response&lt;br/&gt;(Payload Type: 0x0004)&lt;br/&gt;VIN, EID, GID, Further Action
-    end</code></pre>
+    end</div>
 <h3 id="phase-2-routing-activation">Phase 2: Routing Activation<a class="headerlink" href="#phase-2-routing-activation" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     autonumber
     participant Tester as 🔧 Tester
     participant Edge as 🔀 Edge Node
@@ -1706,7 +1706,7 @@
         end
     end
 
-    Note over Tester,Edge: Routing Activation 完成&lt;br/&gt;可开始诊断通信</code></pre>
+    Note over Tester,Edge: Routing Activation 完成&lt;br/&gt;可开始诊断通信</div>
 <h3 id="routing-activation-response-codes">Routing Activation Response Codes<a class="headerlink" href="#routing-activation-response-codes" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1767,7 +1767,7 @@
 <hr />
 <h2 id="doip-to-can">DoIP-to-CAN 报文转发机制<a class="headerlink" href="#doip-to-can" title="Permanent link">&para;</a></h2>
 <h3 id="phase-3">Phase 3: 诊断消息传输<a class="headerlink" href="#phase-3" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     autonumber
     participant Tester as 🔧 Tester&lt;br/&gt;(SA: 0x0E00)
     participant Edge as 🔀 Edge Node&lt;br/&gt;(DoIP Gateway)
@@ -1811,9 +1811,9 @@
         Note left of Edge: DoIP Header +&lt;br/&gt;SA: 0x0741 | TA: 0x0E00&lt;br/&gt;UDS: 62 F1 90 [VIN]
 
         Note over Tester: 解析响应&lt;br/&gt;VIN 读取成功
-    end</code></pre>
+    end</div>
 <h3 id="_3">报文转发详细流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Tester_Side["Tester 端"]
         T1["UDS Request&lt;br/&gt;22 F1 90"]
         T2["DoIP Encapsulation"]
@@ -1847,7 +1847,7 @@
     T1 --&gt; T2 --&gt; T3 --&gt; T4 --&gt; T5 --&gt; E1
     E7 --&gt; C1 --&gt; C2 --&gt; C3
 
-    style Edge_Process fill:#fff3e0,stroke:#f57c00,stroke-width:2px</code></pre>
+    style Edge_Process fill:#fff3e0,stroke:#f57c00,stroke-width:2px</div>
 <h3 id="_4">路由表结构<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1914,7 +1914,7 @@
 <hr />
 <h2 id="doip-to-can_1">DoIP-to-CAN 协议转换细节<a class="headerlink" href="#doip-to-can_1" title="Permanent link">&para;</a></h2>
 <h3 id="can-tp-iso-15765-2">CAN TP 分帧机制 (ISO 15765-2)<a class="headerlink" href="#can-tp-iso-15765-2" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     participant GW as Gateway
     participant ECU as Target ECU
 
@@ -1927,7 +1927,7 @@
     GW-&gt;&gt;ECU: CF [N_PCI=0x21] [Data 7-13]
     GW-&gt;&gt;ECU: CF [N_PCI=0x22] [Data 14-20]
     Note right of GW: ... 继续发送 CF ...
-    GW-&gt;&gt;ECU: CF [N_PCI=0x2N] [Final Data]</code></pre>
+    GW-&gt;&gt;ECU: CF [N_PCI=0x2N] [Final Data]</div>
 <h3 id="n_pci-network-protocol-control-information">N_PCI (Network Protocol Control Information)<a class="headerlink" href="#n_pci-network-protocol-control-information" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1987,7 +1987,7 @@
 <hr />
 <h2 id="_6">错误处理与否定响应<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="doip-nack">DoIP NACK 处理<a class="headerlink" href="#doip-nack" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph Error_Handling["DoIP 错误处理"]
         direction TB
 
@@ -2018,7 +2018,7 @@
     style N2 fill:#ffcdd2,stroke:#c62828
     style N3 fill:#ffcdd2,stroke:#c62828
     style N4 fill:#ffcdd2,stroke:#c62828
-    style E6 fill:#c8e6c9,stroke:#388e3c</code></pre>
+    style E6 fill:#c8e6c9,stroke:#388e3c</div>
 <h3 id="diagnostic-message-nack-codes">Diagnostic Message NACK Codes<a class="headerlink" href="#diagnostic-message-nack-codes" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2121,7 +2121,7 @@
 </tbody>
 </table>
 <h3 id="_9">会话保活机制<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     participant Tester
     participant Edge as Edge Node
 
@@ -2140,7 +2140,7 @@
                 Note over Edge: 关闭 Socket&lt;br/&gt;释放资源
             end
         end
-    end</code></pre>
+    end</div>
 <hr />
 <h2 id="_10">安全考量<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <h3 id="doip_5">DoIP 安全威胁与对策<a class="headerlink" href="#doip_5" title="Permanent link">&para;</a></h3>
@@ -2181,7 +2181,7 @@
 </tbody>
 </table>
 <h3 id="doip-iso-13400-3">DoIP 安全增强 (ISO 13400-3)<a class="headerlink" href="#doip-iso-13400-3" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph Standard["标准 DoIP"]
         S1["TCP/UDP"]
         S2["DoIP"]
@@ -2198,7 +2198,7 @@
     S1 --&gt; S2 --&gt; S3
     SEC1 --&gt; SEC2 --&gt; SEC3 --&gt; SEC4
 
-    style SEC2 fill:#c8e6c9,stroke:#388e3c,stroke-width:2px</code></pre>
+    style SEC2 fill:#c8e6c9,stroke:#388e3c,stroke-width:2px</div>
 <hr />
 <p><em>最后更新: 2026-01-25</em></p>
 
@@ -2272,9 +2272,9 @@
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid-init.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>
