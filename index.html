@@ -1394,74 +1394,49 @@
 </div>
 <hr />
 <h2 id="v-model">📐 V-Model 架构总览<a class="headerlink" href="#v-model" title="Permanent link">&para;</a></h2>
-<div class="mermaid">flowchart TB
-    subgraph Level1["📋 LEVEL 1: Regulatory &amp; Standards Layer"]
-        direction LR
-        REG["UN R79 | R152 | R155 | R156 | R171"]
-        STD["ISO 26262 | ISO 21434 | ISO 21448"]
+<div class="mermaid">flowchart LR
+    subgraph Standards["Level 1: Standards"]
+        REG[UN R79/R152/R155/R156]
+        ISO[ISO 26262/21434]
     end
 
-    subgraph LeftSide["⬇️ DESIGN PHASE"]
-        direction TB
-        subgraph Level2_L["LEVEL 2: System Analysis"]
-            SYS1["SYS.1 Requirements Elicitation"]
-            SYS2["SYS.2 System Requirements"]
-            HARA["HARA / TARA / STPA"]
-        end
-
-        subgraph Level3_L["LEVEL 3: Architecture Design"]
-            SYS3["SYS.3 System Architecture"]
-            SWE1["SWE.1 SW Requirements"]
-            SWE2["SWE.2 SW Architecture"]
-        end
-
-        subgraph Level4_L["LEVEL 4: Detailed Design"]
-            SWE3["SWE.3 Detailed Design"]
-            IMPL["Implementation &amp; Coding"]
-        end
+    subgraph Design["Design Phase"]
+        SYS1[SYS.1 Requirements]
+        SYS2[SYS.2 Analysis]
+        SYS3[SYS.3 Architecture]
+        SWE1[SWE.1 SW Req]
+        SWE2[SWE.2 SW Arch]
+        SWE3[SWE.3 Detail Design]
+        CODE[Implementation]
     end
 
-    subgraph RightSide["⬆️ VERIFICATION PHASE"]
-        direction TB
-        subgraph Level5_R["LEVEL 5: Unit Testing"]
-            SWE4["SWE.4 Unit Verification"]
-            COVERAGE["MC/DC | Branch | Statement"]
-        end
-
-        subgraph Level4_R["LEVEL 4: Integration Testing"]
-            SWE5["SWE.5 SW Integration Test"]
-            FAULT["Fault Injection Testing"]
-        end
-
-        subgraph Level3_R["LEVEL 3: Qualification Testing"]
-            SWE6["SWE.6 SW Qualification"]
-            SYS4["SYS.4 System Integration"]
-        end
-
-        subgraph Level2_R["LEVEL 2: System Validation"]
-            SYS5["SYS.5 System Qualification"]
-            VAL["HIL | VIL | Track Testing"]
-        end
+    subgraph Verify["Verification Phase"]
+        UT[Unit Test]
+        IT[Integration Test]
+        QT[Qualification Test]
+        ST[System Test]
     end
 
-    Level1 --&gt; Level2_L
-    SYS1 --&gt; SYS2 --&gt; HARA
-    HARA --&gt; SYS3 --&gt; SWE1 --&gt; SWE2
-    SWE2 --&gt; SWE3 --&gt; IMPL
+    Standards --&gt; Design
+    SYS1 --&gt; SYS2
+    SYS2 --&gt; SYS3
+    SYS3 --&gt; SWE1
+    SWE1 --&gt; SWE2
+    SWE2 --&gt; SWE3
+    SWE3 --&gt; CODE
 
-    IMPL -.-&gt;|"Code"| SWE4
-    SWE4 --&gt; COVERAGE
-    COVERAGE --&gt; SWE5 --&gt; FAULT
-    FAULT --&gt; SWE6 --&gt; SYS4
-    SYS4 --&gt; SYS5 --&gt; VAL
+    CODE --&gt; UT
+    UT --&gt; IT
+    IT --&gt; QT
+    QT --&gt; ST
 
-    SYS2 &lt;-.-&gt;|"Traceability"| SYS5
-    SWE2 &lt;-.-&gt;|"Traceability"| SWE5
-    SWE3 &lt;-.-&gt;|"Traceability"| SWE4
+    SYS2 -.-&gt; ST
+    SWE2 -.-&gt; IT
+    SWE3 -.-&gt; UT
 
-    style Level1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
-    style LeftSide fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style RightSide fill:#fff3e0,stroke:#ef6c00,stroke-width:2px</div>
+    style Standards fill:#e3f2fd,stroke:#1565c0
+    style Design fill:#e8f5e9,stroke:#2e7d32
+    style Verify fill:#fff3e0,stroke:#ef6c00</div>
 <hr />
 <h2 id="_3">🗂️ 知识漏斗 — 层级导航<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
