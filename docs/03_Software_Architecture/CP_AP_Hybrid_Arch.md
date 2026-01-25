@@ -2,6 +2,35 @@
 
 > 本文档详述 AUTOSAR Classic Platform (CP) 与 Adaptive Platform (AP) 的混合通信架构，包含 SOME/IP、DDS 映射以及 Hypervisor 隔离机制。
 
+---
+
+!!! success "💡 Michael Lin 的实战经验"
+    **项目背景**: 某域控制器 AUTOSAR AP + CP 混合架构落地
+    
+    **核心挑战**: 
+    
+    - ASIL D 安全功能与 QM 娱乐功能共存于同一 SoC
+    - 软硬件团队对 FFI (Freedom from Interference) 理解存在分歧
+    - Hypervisor 与 MPU 双重隔离方案选型争议
+    
+    **我的解决方案**:
+    
+    1. 主导制定 **FFI 验证方案**，明确时间/空间隔离验证用例
+    2. 设计 **MPU 区域划分表**，将 ASIL D/B/QM 代码映射到独立内存区域
+    3. 协调 Hypervisor 供应商与芯片厂商，完成 **联合安全分析**
+    4. 建立 **Inter-VM 通信安全机制**，使用 VirtIO + 共享内存方案
+    
+    **量化成果**:
+    
+    | 指标 | 改进效果 |
+    |:-----|:--------:|
+    | 架构评审通过率 | 一次通过 |
+    | 架构返工率 | 降低 30% |
+    | FFI 验证用例覆盖 | 100% |
+    | 项目延期风险 | 消除 |
+
+---
+
 ## 架构概览
 
 ### CP 与 AP 定位对比
