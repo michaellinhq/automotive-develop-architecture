@@ -1,0 +1,24 @@
+# Python Virtual Environment
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# MkDocs build output
+site/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jekyll (deprecated)
+_site/
+.jekyll-cache/
+.sass-cache/

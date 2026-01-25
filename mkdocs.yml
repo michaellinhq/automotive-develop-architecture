@@ -1,0 +1,110 @@
+site_name: Automotive Engineering & Safety Architecture
+site_description: From Regulatory Compliance to Raw Pointers — 汽车软件架构全栈知识库
+site_author: Michael Lin (Senior Architect)
+repo_url: https://github.com/michaellinhq/automotive-develop-architecture
+repo_name: michaellinhq/automotive-develop-architecture
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs           # 顶部导航栏
+    - navigation.tabs.sticky    # 固定导航栏
+    - navigation.sections       # 侧边栏分组
+    - navigation.expand         # 展开侧边栏
+    - navigation.indexes        # 目录索引
+    - navigation.top            # 返回顶部按钮
+    - toc.integrate             # 目录集成到右侧
+    - search.suggest            # 搜索建议
+    - search.highlight          # 搜索高亮
+    - content.code.copy         # 代码复制按钮
+    - content.code.annotate     # 代码注释
+  palette:
+    # 浅色模式
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: 切换到暗黑模式
+    # 暗黑模式（极客最爱）
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+
+# 激活 Mermaid 图表和代码高亮扩展
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+plugins:
+  - search:
+      lang: 
+        - zh
+        - en
+  - mermaid2
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/michaellinhq
+  generator: false
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
+extra_css:
+  - stylesheets/extra.css
+
+# 极其专业的 ASPICE 导航结构
+nav:
+  - 🏠 专家首页: index.md
+  - 🗺️ V-Model 架构总览: ASPICE_V_Model_Map.md
+  - 📋 Level 1 - 法规与需求:
+    - 法规矩阵总览: 01_Standards_Level/Regulations_Matrix.md
+  - 🔍 Level 2 - 系统与安全分析:
+    - HARA / TARA / STPA 分析: 02_System_Analysis/HARA_TARA_STPA_Guide.md
+    - 硬件度量 (FTA/FMEA): 02_System_Analysis/Hardware_Reliability.md
+  - 🏗️ Level 3 - 软件架构设计:
+    - CP/AP 混合架构: 03_Software_Architecture/CP_AP_Hybrid_Arch.md
+    - DoIP 路由策略: 03_Software_Architecture/DoIP_Routing_Strategy.md
+  - 💻 Level 4 - 编码与实现:
+    - UDS 0x27 安全访问: 04_Implementation/UDS_0x27_SecurityAccess.md
+    - MISRA C++ 核心规则: 04_Implementation/MISRA_Cpp_Golden_Rules.md
+    - 内存映射设计: 04_Implementation/Memory_Mapping_Design.md
+  - ✅ Level 5 - 验证与集成:
+    - V-Model 测试策略: 05_Verification/Testing_Strategy.md

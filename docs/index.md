@@ -123,7 +123,7 @@ flowchart TB
 
 | Document | Scope | Key Content |
 |:---------|:------|:------------|
-| 📄 [**Regulations Matrix**](./docs/01_Standards_Level/Regulations_Matrix.md) | UN ECE Regulations | R79 (Steering), R152 (AEBS), R155 (CSMS), R156 (SUMS), R171 (CMS) 核心边界约束 |
+| 📄 [**Regulations Matrix**](01_Standards_Level/Regulations_Matrix.md) | UN ECE Regulations | R79 (Steering), R152 (AEBS), R155 (CSMS), R156 (SUMS), R171 (CMS) 核心边界约束 |
 
 **Core Competencies:**
 - UN Type Approval 法规解读与系统边界定义
@@ -138,8 +138,8 @@ flowchart TB
 
 | Document | Scope | Key Content |
 |:---------|:------|:------------|
-| 📄 [**HARA / TARA / STPA Guide**](./docs/02_System_Analysis/HARA_TARA_STPA_Guide.md) | Risk Analysis | 功能安全与网络安全风险分析方法论对比，STPA 控制回路建模 |
-| 📄 [**Hardware Reliability**](./docs/02_System_Analysis/Hardware_Reliability.md) | HW Metrics | FTA/FMEA/FMEDA 在 SPFM/LFM/PMHF 计算中的应用 |
+| 📄 [**HARA / TARA / STPA Guide**](02_System_Analysis/HARA_TARA_STPA_Guide.md) | Risk Analysis | 功能安全与网络安全风险分析方法论对比，STPA 控制回路建模 |
+| 📄 [**Hardware Reliability**](02_System_Analysis/Hardware_Reliability.md) | HW Metrics | FTA/FMEA/FMEDA 在 SPFM/LFM/PMHF 计算中的应用 |
 
 **Core Competencies:**
 - STPA 控制结构图绘制与 UCA 识别
@@ -154,8 +154,8 @@ flowchart TB
 
 | Document | Scope | Key Content |
 |:---------|:------|:------------|
-| 📄 [**CP/AP Hybrid Architecture**](./docs/03_Software_Architecture/CP_AP_Hybrid_Arch.md) | AUTOSAR | Classic + Adaptive Platform 混合通信，SOME/IP, DDS, Hypervisor 隔离 |
-| 📄 [**DoIP Routing Strategy**](./docs/03_Software_Architecture/DoIP_Routing_Strategy.md) | Diagnostics | DoIP 完整序列图，Routing Activation, DoIP-to-CAN 协议转换 |
+| 📄 [**CP/AP Hybrid Architecture**](03_Software_Architecture/CP_AP_Hybrid_Arch.md) | AUTOSAR | Classic + Adaptive Platform 混合通信，SOME/IP, DDS, Hypervisor 隔离 |
+| 📄 [**DoIP Routing Strategy**](03_Software_Architecture/DoIP_Routing_Strategy.md) | Diagnostics | DoIP 完整序列图，Routing Activation, DoIP-to-CAN 协议转换 |
 
 **Core Competencies:**
 - SOME/IP 服务发现与 DDS QoS 策略选择
@@ -171,9 +171,9 @@ flowchart TB
 
 | Document | Scope | Key Content |
 |:---------|:------|:------------|
-| 📄 [**UDS 0x27 Security Access**](./docs/04_Implementation/UDS_0x27_SecurityAccess.md) | Diagnostics | PduR → Dcm → Callout → Crypto Driver 完整调用栈，Seed/Key 实现 |
-| 📄 [**MISRA C++ Golden Rules**](./docs/04_Implementation/MISRA_Cpp_Golden_Rules.md) | Coding Standard | 10 条致命规则 Bad vs Good 对比，静态分析工具链集成 |
-| 📄 [**Memory Mapping Design**](./docs/04_Implementation/Memory_Mapping_Design.md) | MemMap | AUTOSAR MemMap.h 原理，链接器脚本 ASIL 分区，MPU 联动配置 |
+| 📄 [**UDS 0x27 Security Access**](04_Implementation/UDS_0x27_SecurityAccess.md) | Diagnostics | PduR → Dcm → Callout → Crypto Driver 完整调用栈，Seed/Key 实现 |
+| 📄 [**MISRA C++ Golden Rules**](04_Implementation/MISRA_Cpp_Golden_Rules.md) | Coding Standard | 10 条致命规则 Bad vs Good 对比，静态分析工具链集成 |
+| 📄 [**Memory Mapping Design**](04_Implementation/Memory_Mapping_Design.md) | MemMap | AUTOSAR MemMap.h 原理，链接器脚本 ASIL 分区，MPU 联动配置 |
 
 **Core Competencies:**
 - UDS 安全访问状态机与防暴力攻击机制
@@ -189,7 +189,7 @@ flowchart TB
 
 | Document | Scope | Key Content |
 |:---------|:------|:------------|
-| 📄 [**Testing Strategy**](./docs/05_Verification/Testing_Strategy.md) | SWE.5/SWE.6 | ASIL 分级测试方法矩阵，MC/DC 覆盖率，故障注入策略，HIL/SIL/MIL 测试环境 |
+| 📄 [**Testing Strategy**](05_Verification/Testing_Strategy.md) | SWE.5/SWE.6 | ASIL 分级测试方法矩阵，MC/DC 覆盖率，故障注入策略，HIL/SIL/MIL 测试环境 |
 
 **Core Competencies:**
 - MC/DC 覆盖率设计与测试用例推导
