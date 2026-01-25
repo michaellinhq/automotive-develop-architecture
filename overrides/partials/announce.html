@@ -1,0 +1,28 @@
+<!-- 顶部公告横幅 -->
+{% if config.extra.announcement %}
+<style>
+  .md-announce {
+    background: linear-gradient(90deg, #1a237e 0%, #0d47a1 50%, #01579b 100%);
+    color: white;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    text-align: center;
+  }
+  .md-announce a {
+    color: #ffeb3b;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .md-announce a:hover {
+    text-decoration: underline;
+  }
+  .md-announce__dismiss {
+    color: white;
+    opacity: 0.7;
+  }
+  .md-announce__dismiss:hover {
+    opacity: 1;
+  }
+</style>
+{{ config.extra.announcement }}
+{% endif %}

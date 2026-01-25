@@ -1,12 +1,19 @@
 site_name: Automotive Engineering & Safety Architecture
 site_description: From Regulatory Compliance to Raw Pointers — 汽车软件架构全栈知识库
 site_author: Michael Lin (Senior Architect)
+site_url: https://michaellinhq.github.io/automotive-develop-architecture/
 repo_url: https://github.com/michaellinhq/automotive-develop-architecture
 repo_name: michaellinhq/automotive-develop-architecture
+
+# 版权信息
+copyright: >
+  Copyright &copy; 2026 Michael Lin — 
+  <a href="mailto:haiqing.lin@compliance-waechter.com">haiqing.lin@compliance-waechter.com</a>
 
 theme:
   name: material
   language: zh
+  custom_dir: overrides
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -14,11 +21,13 @@ theme:
     - navigation.expand
     - navigation.indexes
     - navigation.top
+    - navigation.footer
     - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
     - content.code.annotate
+    - announce.dismiss
   palette:
     - scheme: default
       primary: indigo
@@ -38,7 +47,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-# Markdown 扩展 - 使用 MkDocs Material 官方 Mermaid 配置
+# Markdown 扩展
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
@@ -75,11 +84,34 @@ plugins:
         - zh
         - en
 
+# 额外配置
 extra:
+  # 公告横幅文字
+  announcement: "🚀 想要将此架构一键落地到你的项目中？<a href='https://compliance-waechter.com'>点击查看 Compliance-Wächter →</a>"
+  
+  # 社交链接
   social:
+    - icon: fontawesome/brands/weixin
+      link: "#wechat-qrcode"
+      name: 添加微信交流
     - icon: fontawesome/brands/github
-      link: https://github.com/michaellinhq
+      link: https://github.com/michaellinhq/automotive-develop-architecture
+      name: GitHub 开源项目
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/michael-lin-0a09ba67/
+      name: LinkedIn - Michael Lin
+    - icon: fontawesome/solid/envelope
+      link: mailto:haiqing.lin@compliance-waechter.com
+      name: 邮件联系
+  
+  # 隐藏 MkDocs 生成标识
   generator: false
+  
+  # 个人简介 (用于自定义模板)
+  author_bio:
+    title: "Automotive Quality Expert | Architect of Compliance-Wächter"
+    subtitle: "AI for ISO 21434 & UN R155"
+    description: "10+ years in German automotive electronics sector at MAGNA. Building AI-driven solutions for Cybersecurity Compliance."
 
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
@@ -106,3 +138,4 @@ nav:
     - 内存映射设计: 04_Implementation/Memory_Mapping_Design.md
   - ✅ Level 5 - 验证与集成:
     - V-Model 测试策略: 05_Verification/Testing_Strategy.md
+  - 🛠️ Compliance-Wächter ↗: https://compliance-waechter.com
