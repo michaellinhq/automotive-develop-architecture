@@ -68,74 +68,49 @@
 ## 📐 V-Model 架构总览
 
 ```mermaid
-flowchart TB
-    subgraph Level1["📋 LEVEL 1: Regulatory & Standards Layer"]
-        direction LR
-        REG["UN R79 | R152 | R155 | R156 | R171"]
-        STD["ISO 26262 | ISO 21434 | ISO 21448"]
+flowchart LR
+    subgraph Standards["Level 1: Standards"]
+        REG[UN R79/R152/R155/R156]
+        ISO[ISO 26262/21434]
     end
 
-    subgraph LeftSide["⬇️ DESIGN PHASE"]
-        direction TB
-        subgraph Level2_L["LEVEL 2: System Analysis"]
-            SYS1["SYS.1 Requirements Elicitation"]
-            SYS2["SYS.2 System Requirements"]
-            HARA["HARA / TARA / STPA"]
-        end
-        
-        subgraph Level3_L["LEVEL 3: Architecture Design"]
-            SYS3["SYS.3 System Architecture"]
-            SWE1["SWE.1 SW Requirements"]
-            SWE2["SWE.2 SW Architecture"]
-        end
-        
-        subgraph Level4_L["LEVEL 4: Detailed Design"]
-            SWE3["SWE.3 Detailed Design"]
-            IMPL["Implementation & Coding"]
-        end
+    subgraph Design["Design Phase"]
+        SYS1[SYS.1 Requirements]
+        SYS2[SYS.2 Analysis]
+        SYS3[SYS.3 Architecture]
+        SWE1[SWE.1 SW Req]
+        SWE2[SWE.2 SW Arch]
+        SWE3[SWE.3 Detail Design]
+        CODE[Implementation]
     end
 
-    subgraph RightSide["⬆️ VERIFICATION PHASE"]
-        direction TB
-        subgraph Level5_R["LEVEL 5: Unit Testing"]
-            SWE4["SWE.4 Unit Verification"]
-            COVERAGE["MC/DC | Branch | Statement"]
-        end
-        
-        subgraph Level4_R["LEVEL 4: Integration Testing"]
-            SWE5["SWE.5 SW Integration Test"]
-            FAULT["Fault Injection Testing"]
-        end
-        
-        subgraph Level3_R["LEVEL 3: Qualification Testing"]
-            SWE6["SWE.6 SW Qualification"]
-            SYS4["SYS.4 System Integration"]
-        end
-        
-        subgraph Level2_R["LEVEL 2: System Validation"]
-            SYS5["SYS.5 System Qualification"]
-            VAL["HIL | VIL | Track Testing"]
-        end
+    subgraph Verify["Verification Phase"]
+        UT[Unit Test]
+        IT[Integration Test]
+        QT[Qualification Test]
+        ST[System Test]
     end
 
-    Level1 --> Level2_L
-    SYS1 --> SYS2 --> HARA
-    HARA --> SYS3 --> SWE1 --> SWE2
-    SWE2 --> SWE3 --> IMPL
+    Standards --> Design
+    SYS1 --> SYS2
+    SYS2 --> SYS3
+    SYS3 --> SWE1
+    SWE1 --> SWE2
+    SWE2 --> SWE3
+    SWE3 --> CODE
 
-    IMPL -.->|"Code"| SWE4
-    SWE4 --> COVERAGE
-    COVERAGE --> SWE5 --> FAULT
-    FAULT --> SWE6 --> SYS4
-    SYS4 --> SYS5 --> VAL
+    CODE --> UT
+    UT --> IT
+    IT --> QT
+    QT --> ST
 
-    SYS2 <-.->|"Traceability"| SYS5
-    SWE2 <-.->|"Traceability"| SWE5
-    SWE3 <-.->|"Traceability"| SWE4
+    SYS2 -.-> ST
+    SWE2 -.-> IT
+    SWE3 -.-> UT
 
-    style Level1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
-    style LeftSide fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style RightSide fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style Standards fill:#e3f2fd,stroke:#1565c0
+    style Design fill:#e8f5e9,stroke:#2e7d32
+    style Verify fill:#fff3e0,stroke:#ef6c00
 ```
 
 ---
