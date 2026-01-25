@@ -1,0 +1,486 @@
+# DoIP 路由策略与诊断通信
+
+> 本文档详述 Diagnostic over IP (DoIP) 的路由架构、TCP 握手流程、Routing Activation 机制以及 DoIP-to-CAN 报文转发策略。
+
+## DoIP 协议概述
+
+### 协议栈位置
+
+```mermaid
+flowchart TB
+    subgraph OSI["OSI 参考模型"]
+        direction TB
+        L7["应用层<br/>UDS (ISO 14229)"]
+        L6["表示层"]
+        L5["会话层<br/>DoIP (ISO 13400)"]
+        L4["传输层<br/>TCP / UDP"]
+        L3["网络层<br/>IP"]
+        L2["数据链路层<br/>Ethernet MAC"]
+        L1["物理层<br/>100BASE-T1"]
+        
+        L7 --> L6 --> L5 --> L4 --> L3 --> L2 --> L1
+    end
+    
+    subgraph DoIP_Msg["DoIP 报文结构"]
+        direction TB
+        HDR["DoIP Header (8 bytes)"]
+        PLD["DoIP Payload"]
+        
+        HDR --> PLD
+    end
+    
+    style L5 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style L7 fill:#e8f5e9,stroke:#388e3c
+```
+
+### DoIP 报文头格式
+
+| 字段 | 偏移 | 大小 | 描述 |
+|------|------|------|------|
+| Protocol Version | 0 | 1 byte | 协议版本 (0x02 = ISO 13400-2:2019) |
+| Inverse Protocol Version | 1 | 1 byte | 版本取反 (0xFD) |
+| Payload Type | 2 | 2 bytes | 载荷类型 |
+| Payload Length | 4 | 4 bytes | 载荷长度 |
+| Payload | 8 | Variable | 载荷数据 |
+
+### 常用 Payload Type
+
+| Type Code | 名称 | 方向 | 描述 |
+|-----------|------|------|------|
+| 0x0000 | Generic Header NACK | Edge → Tester | 通用否定响应 |
+| 0x0001 | Vehicle Identification Request | Tester → Edge | 车辆识别请求 |
+| 0x0004 | Vehicle Identification Response | Edge → Tester | 车辆识别响应 |
+| 0x0005 | Routing Activation Request | Tester → Edge | 路由激活请求 |
+| 0x0006 | Routing Activation Response | Edge → Tester | 路由激活响应 |
+| 0x8001 | Diagnostic Message | Bidirectional | 诊断消息 |
+| 0x8002 | Diagnostic Message Positive ACK | Edge → Tester | 诊断消息确认 |
+| 0x8003 | Diagnostic Message Negative ACK | Edge → Tester | 诊断消息否定 |
+
+---
+
+## DoIP 网络拓扑
+
+### 典型车载 DoIP 架构
+
+```mermaid
+flowchart TB
+    subgraph External["🔧 外部诊断环境"]
+        TESTER["诊断仪<br/>(Tester)"]
+    end
+    
+    subgraph Vehicle["🚗 车辆网络"]
+        subgraph Backbone["Ethernet Backbone"]
+            direction LR
+            OBD["OBD-II 接口<br/>(DoIP Entity)"]
+            EDGE["Edge Node<br/>(DoIP Gateway)"]
+            HPC["域控制器<br/>(DoIP Node)"]
+        end
+        
+        subgraph CAN_Domain["CAN 域"]
+            direction TB
+            GW["CAN Gateway"]
+            ECU1["ECU 1<br/>(Body)"]
+            ECU2["ECU 2<br/>(Chassis)"]
+            ECU3["ECU 3<br/>(Powertrain)"]
+        end
+        
+        subgraph Ethernet_Domain["Ethernet 域"]
+            direction TB
+            CAM["Camera ECU"]
+            LIDAR["LiDAR ECU"]
+            RADAR["Radar ECU"]
+        end
+    end
+    
+    TESTER <-->|"Ethernet<br/>DoIP over TCP"| OBD
+    OBD <--> EDGE
+    EDGE <--> HPC
+    EDGE <--> GW
+    GW <--> ECU1 & ECU2 & ECU3
+    EDGE <--> CAM & LIDAR & RADAR
+
+    style EDGE fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style TESTER fill:#e3f2fd,stroke:#1976d2
+```
+
+---
+
+## 完整诊断会话序列图
+
+### Phase 1: TCP 握手与 DoIP 连接建立
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Tester as 🔧 Tester<br/>(外部诊断仪)
+    participant OBD as 📍 OBD Port<br/>(Physical Entry)
+    participant Edge as 🔀 Edge Node<br/>(DoIP Gateway)
+    participant Target as 📦 Target ECU<br/>(CAN Node)
+
+    Note over Tester,Edge: ═══ Phase 1: TCP 三次握手 ═══
+
+    rect rgb(227, 242, 253)
+        Tester->>Edge: TCP SYN<br/>Seq=x
+        Note right of Tester: 端口 13400 (DoIP)
+        
+        Edge->>Tester: TCP SYN-ACK<br/>Seq=y, Ack=x+1
+        
+        Tester->>Edge: TCP ACK<br/>Seq=x+1, Ack=y+1
+        Note over Tester,Edge: TCP 连接建立完成
+    end
+
+    Note over Tester,Edge: ═══ Phase 2: 车辆识别 (可选) ═══
+
+    rect rgb(232, 245, 233)
+        Tester->>Edge: DoIP Vehicle Identification Request<br/>(Payload Type: 0x0001)
+        
+        Edge->>Tester: DoIP Vehicle Identification Response<br/>(Payload Type: 0x0004)<br/>VIN, EID, GID, Further Action
+    end
+```
+
+### Phase 2: Routing Activation
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Tester as 🔧 Tester
+    participant Edge as 🔀 Edge Node
+    participant Target as 📦 Target ECU
+
+    Note over Tester,Edge: ═══ Phase 3: Routing Activation ═══
+
+    rect rgb(255, 243, 224)
+        Tester->>Edge: DoIP Routing Activation Request<br/>(Payload Type: 0x0005)
+        Note right of Tester: Source Address: 0x0E00<br/>Activation Type: 0x00 (Default)<br/>OEM Specific: (optional)
+        
+        Note over Edge: 验证 Tester 地址<br/>检查认证要求<br/>分配资源
+        
+        alt 激活成功
+            Edge->>Tester: DoIP Routing Activation Response<br/>(Payload Type: 0x0006)
+            Note left of Edge: Response Code: 0x10<br/>(Routing Successfully Activated)<br/>Logical Address: 0x0001
+        else 需要认证
+            Edge->>Tester: DoIP Routing Activation Response<br/>Response Code: 0x04<br/>(Authentication Required)
+            
+            Tester->>Edge: Authentication Data
+            Edge->>Tester: Authentication Confirm
+        else 激活失败
+            Edge->>Tester: DoIP Routing Activation Response<br/>Response Code: 0x00-0x03<br/>(Denied)
+        end
+    end
+    
+    Note over Tester,Edge: Routing Activation 完成<br/>可开始诊断通信
+```
+
+### Routing Activation Response Codes
+
+| Code | 名称 | 描述 |
+|------|------|------|
+| 0x00 | Denied - Unknown SA | 未知源地址 |
+| 0x01 | Denied - All Sockets Registered | 套接字已满 |
+| 0x02 | Denied - SA Different from Registered | 地址与已注册不同 |
+| 0x03 | Denied - SA Already Activated | 地址已被激活 |
+| 0x04 | Denied - Authentication Missing | 需要认证 |
+| 0x05 | Denied - Confirmation Rejected | 确认被拒绝 |
+| 0x06 | Denied - Unsupported Activation Type | 不支持的激活类型 |
+| 0x10 | Routing Successfully Activated | 路由激活成功 |
+| 0x11 | Routing Will Be Activated (Confirmation Required) | 需要确认后激活 |
+
+---
+
+## DoIP-to-CAN 报文转发机制
+
+### Phase 3: 诊断消息传输
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Tester as 🔧 Tester<br/>(SA: 0x0E00)
+    participant Edge as 🔀 Edge Node<br/>(DoIP Gateway)
+    participant CAN_GW as 🔌 CAN Gateway
+    participant Target as 📦 Target ECU<br/>(TA: 0x0741)
+
+    Note over Tester,Target: ═══ Phase 4: 诊断消息传输 ═══
+
+    rect rgb(252, 228, 236)
+        Note over Tester: 构造 UDS 请求<br/>Service: 0x22 (ReadDataByIdentifier)<br/>DID: 0xF190 (VIN)
+        
+        Tester->>Edge: DoIP Diagnostic Message (0x8001)
+        Note right of Tester: DoIP Header +<br/>SA: 0x0E00 | TA: 0x0741<br/>UDS: 22 F1 90
+        
+        Note over Edge: 解析 DoIP 报文<br/>查找路由表<br/>确定目标在 CAN 域
+        
+        Edge->>Tester: DoIP Diagnostic Message ACK (0x8002)
+        Note left of Edge: ACK Code: 0x00<br/>(Routing Confirmation)
+    end
+
+    rect rgb(255, 249, 196)
+        Note over Edge: 协议转换<br/>DoIP → CAN TP
+        
+        Edge->>CAN_GW: CAN TP Request<br/>CAN ID: 0x741<br/>Payload: 22 F1 90
+        
+        CAN_GW->>Target: CAN Frame<br/>ID: 0x741 | Data: 03 22 F1 90 ...
+        
+        Note over Target: 处理 UDS 请求<br/>准备响应数据
+        
+        Target->>CAN_GW: CAN Frame Response<br/>ID: 0x749 | Data: 10 14 62 F1 90 ...
+        
+        Note over Target,CAN_GW: 多帧传输<br/>(ISO 15765-2)
+        
+        CAN_GW->>Edge: CAN TP Response<br/>UDS: 62 F1 90 [VIN Data...]
+    end
+
+    rect rgb(232, 245, 233)
+        Note over Edge: 协议转换<br/>CAN TP → DoIP
+        
+        Edge->>Tester: DoIP Diagnostic Message (0x8001)
+        Note left of Edge: DoIP Header +<br/>SA: 0x0741 | TA: 0x0E00<br/>UDS: 62 F1 90 [VIN]
+        
+        Note over Tester: 解析响应<br/>VIN 读取成功
+    end
+```
+
+### 报文转发详细流程
+
+```mermaid
+flowchart TB
+    subgraph Tester_Side["Tester 端"]
+        T1["UDS Request<br/>22 F1 90"]
+        T2["DoIP Encapsulation"]
+        T3["TCP Segment"]
+        T4["IP Packet"]
+        T5["Ethernet Frame"]
+    end
+    
+    subgraph Edge_Process["Edge Node 处理"]
+        direction TB
+        E1["接收 Ethernet Frame"]
+        E2["解析 IP/TCP"]
+        E3["解析 DoIP Header"]
+        E4["提取 UDS Payload"]
+        E5["路由表查询"]
+        E6{"目标位置?"}
+        E7["DoIP → CAN TP 转换"]
+        E8["DoIP 直接转发"]
+        
+        E1 --> E2 --> E3 --> E4 --> E5 --> E6
+        E6 -->|CAN 域| E7
+        E6 -->|Ethernet 域| E8
+    end
+    
+    subgraph CAN_Side["CAN 端"]
+        C1["CAN TP 分帧"]
+        C2["CAN Frame 发送"]
+        C3["Target ECU 处理"]
+    end
+    
+    T1 --> T2 --> T3 --> T4 --> T5 --> E1
+    E7 --> C1 --> C2 --> C3
+    
+    style Edge_Process fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+```
+
+### 路由表结构
+
+| Target Address (TA) | Network Type | Physical Channel | CAN ID (Tx) | CAN ID (Rx) | Remarks |
+|---------------------|--------------|------------------|-------------|-------------|---------|
+| 0x0741 | CAN | CAN1 | 0x741 | 0x749 | Body ECU |
+| 0x0742 | CAN | CAN1 | 0x742 | 0x74A | Chassis ECU |
+| 0x0743 | CAN-FD | CAN2 | 0x743 | 0x74B | Powertrain ECU |
+| 0x0A01 | Ethernet | ETH0 | - | - | Camera ECU |
+| 0x0A02 | Ethernet | ETH0 | - | - | Radar ECU |
+| 0x0001 | Local | - | - | - | Edge Node Self |
+
+---
+
+## DoIP-to-CAN 协议转换细节
+
+### CAN TP 分帧机制 (ISO 15765-2)
+
+```mermaid
+sequenceDiagram
+    participant GW as Gateway
+    participant ECU as Target ECU
+
+    Note over GW,ECU: 单帧传输 (≤7 bytes payload)
+    GW->>ECU: SF [N_PCI=0x0N] [Data...]
+    
+    Note over GW,ECU: 多帧传输 (>7 bytes payload)
+    GW->>ECU: FF [N_PCI=0x1NNN] [Data 1-6]
+    ECU->>GW: FC [N_PCI=0x30] [BS] [STmin]
+    GW->>ECU: CF [N_PCI=0x21] [Data 7-13]
+    GW->>ECU: CF [N_PCI=0x22] [Data 14-20]
+    Note right of GW: ... 继续发送 CF ...
+    GW->>ECU: CF [N_PCI=0x2N] [Final Data]
+```
+
+### N_PCI (Network Protocol Control Information)
+
+| 帧类型 | N_PCI 范围 | 描述 |
+|--------|------------|------|
+| Single Frame (SF) | 0x00-0x07 | 单帧，长度 1-7 字节 |
+| First Frame (FF) | 0x10-0x1F | 首帧，后跟数据长度 |
+| Consecutive Frame (CF) | 0x20-0x2F | 连续帧，序号 0-F |
+| Flow Control (FC) | 0x30-0x3F | 流控帧 |
+
+### 报文转换示例
+
+```
+DoIP 请求报文:
+┌──────────────────────────────────────────────────────┐
+│ DoIP Header (8 bytes)                                │
+│ ┌─────────┬─────────┬─────────────┬────────────────┐ │
+│ │ Ver:0x02│ ~Ver    │ Type:0x8001 │ Length:0x0007  │ │
+│ └─────────┴─────────┴─────────────┴────────────────┘ │
+│ DoIP Payload                                         │
+│ ┌─────────────┬─────────────┬──────────────────────┐ │
+│ │ SA: 0x0E00  │ TA: 0x0741  │ UDS: 22 F1 90        │ │
+│ └─────────────┴─────────────┴──────────────────────┘ │
+└──────────────────────────────────────────────────────┘
+                            ↓ 
+                     协议转换 (Edge Node)
+                            ↓
+CAN 请求帧:
+┌──────────────────────────────────────────────────────┐
+│ CAN Frame                                            │
+│ ┌───────────┬────────────────────────────────────┐   │
+│ │ ID: 0x741 │ Data: 03 22 F1 90 00 00 00 00     │   │
+│ └───────────┴────────────────────────────────────┘   │
+│              └─ SF: len=3, UDS payload              │
+└──────────────────────────────────────────────────────┘
+```
+
+---
+
+## 错误处理与否定响应
+
+### DoIP NACK 处理
+
+```mermaid
+flowchart TB
+    subgraph Error_Handling["DoIP 错误处理"]
+        direction TB
+        
+        E1["接收 DoIP 消息"]
+        E2{"Header 有效?"}
+        E3{"Payload Type 支持?"}
+        E4{"SA 已注册?"}
+        E5{"TA 可达?"}
+        E6["转发诊断消息"]
+        
+        N1["NACK: 0x00<br/>Incorrect Pattern"]
+        N2["NACK: 0x01<br/>Unknown Payload Type"]
+        N3["NACK: 0x02<br/>Unknown SA"]
+        N4["Diag NACK: 0x03<br/>Unknown TA"]
+        
+        E1 --> E2
+        E2 -->|No| N1
+        E2 -->|Yes| E3
+        E3 -->|No| N2
+        E3 -->|Yes| E4
+        E4 -->|No| N3
+        E4 -->|Yes| E5
+        E5 -->|No| N4
+        E5 -->|Yes| E6
+    end
+    
+    style N1 fill:#ffcdd2,stroke:#c62828
+    style N2 fill:#ffcdd2,stroke:#c62828
+    style N3 fill:#ffcdd2,stroke:#c62828
+    style N4 fill:#ffcdd2,stroke:#c62828
+    style E6 fill:#c8e6c9,stroke:#388e3c
+```
+
+### Diagnostic Message NACK Codes
+
+| Code | 名称 | 描述 |
+|------|------|------|
+| 0x02 | Invalid SA | 无效源地址 |
+| 0x03 | Unknown TA | 未知目标地址 |
+| 0x04 | Diagnostic Message Too Large | 消息过大 |
+| 0x05 | Out of Memory | 内存不足 |
+| 0x06 | Target Unreachable | 目标不可达 |
+| 0x07 | Unknown Network | 未知网络 |
+| 0x08 | Transport Protocol Error | 传输协议错误 |
+
+---
+
+## 时序与超时管理
+
+### 关键超时参数
+
+| 参数 | 值 | 描述 |
+|------|-----|------|
+| T_TCP_Initial | 2s | TCP 连接建立超时 |
+| T_TCP_General | 无限 | TCP 连接保持时间 |
+| A_DoIP_Ctrl | 2s | DoIP 控制消息超时 |
+| A_DoIP_Announce_Wait | 500ms | 车辆公告等待时间 |
+| A_DoIP_Announce_Interval | 500ms | 车辆公告间隔 |
+| A_DoIP_Announce_Num | 3 | 车辆公告次数 |
+| A_DoIP_Diagnostic_Message | 2s | 诊断消息 ACK 超时 |
+| T_TCP_Alive_Check | 500ms | TCP 存活检查周期 |
+
+### 会话保活机制
+
+```mermaid
+sequenceDiagram
+    participant Tester
+    participant Edge as Edge Node
+
+    Note over Tester,Edge: 正常诊断通信
+
+    loop 每 T_TCP_Alive_Check
+        alt 有诊断活动
+            Note over Edge: 重置存活定时器
+        else 无活动超过阈值
+            Edge->>Tester: DoIP Alive Check Request
+            
+            alt Tester 响应
+                Tester->>Edge: DoIP Alive Check Response
+                Note over Edge: 保持连接
+            else 超时无响应
+                Note over Edge: 关闭 Socket<br/>释放资源
+            end
+        end
+    end
+```
+
+---
+
+## 安全考量
+
+### DoIP 安全威胁与对策
+
+| 威胁 | 描述 | 对策 |
+|------|------|------|
+| 未授权接入 | 非法设备连接 DoIP | Routing Activation 认证 |
+| 中间人攻击 | 报文窃听/篡改 | TLS/DTLS 加密 (DoIP-SEC) |
+| DoS 攻击 | 资源耗尽 | 连接数限制、速率限制 |
+| 重放攻击 | 重复发送旧报文 | 会话 ID、时间戳验证 |
+| 非法路由 | 绕过网关直接访问 ECU | 网络分段、防火墙规则 |
+
+### DoIP 安全增强 (ISO 13400-3)
+
+```mermaid
+flowchart LR
+    subgraph Standard["标准 DoIP"]
+        S1["TCP/UDP"]
+        S2["DoIP"]
+        S3["UDS"]
+    end
+    
+    subgraph Secure["安全 DoIP"]
+        SEC1["TCP"]
+        SEC2["TLS 1.3"]
+        SEC3["DoIP"]
+        SEC4["UDS"]
+    end
+    
+    S1 --> S2 --> S3
+    SEC1 --> SEC2 --> SEC3 --> SEC4
+    
+    style SEC2 fill:#c8e6c9,stroke:#388e3c,stroke-width:2px
+```
+
+---
+
+*最后更新: 2026-01-25*
