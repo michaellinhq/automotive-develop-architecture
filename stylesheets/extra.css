@@ -1,15 +1,35 @@
-/* Custom Styles for Automotive Safety Knowledge Base */
+/* ============================================================
+ * 汽车知识库 - 自定义样式
+ * ============================================================ */
 
-/* 徽章样式增强 */
-img[alt*="badge"], img[alt*="ISO"], img[alt*="AUTOSAR"], img[alt*="ASPICE"] {
+/* 徽章样式优化 */
+img[alt="ISO 26262"],
+img[alt="ISO 21434"],
+img[alt="AUTOSAR"],
+img[alt="ASPICE"],
+img[alt="ISO 14229"],
+img[alt*="UN R155"] {
   display: inline-block;
-  margin: 2px 4px;
+  margin: 4px 4px 4px 0;
+  vertical-align: middle;
+}
+
+/* Mermaid 图表容器 */
+.mermaid {
+  background: transparent !important;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* 暗黑模式下的 Mermaid 图表 */
+[data-md-color-scheme="slate"] .mermaid {
+  filter: invert(0.9) hue-rotate(180deg);
 }
 
 /* 表格样式优化 */
 .md-typeset table:not([class]) {
-  font-size: 0.85rem;
-  border-collapse: collapse;
+  font-size: 0.75rem;
+  border: 1px solid var(--md-typeset-table-color);
 }
 
 .md-typeset table:not([class]) th {
@@ -18,57 +38,69 @@ img[alt*="badge"], img[alt*="ISO"], img[alt*="AUTOSAR"], img[alt*="ASPICE"] {
   font-weight: 600;
 }
 
-.md-typeset table:not([class]) td {
-  border: 1px solid var(--md-typeset-table-color);
-}
-
-/* Mermaid 图表容器优化 */
-.mermaid {
-  text-align: center;
-  margin: 1.5rem 0;
-}
-
-/* 代码块样式 */
+/* 代码块标题 */
 .md-typeset pre > code {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
-/* 导航栏图标 */
-.md-nav__icon {
-  margin-right: 0.5rem;
-}
-
-/* 页面标题样式 */
-.md-typeset h1 {
-  font-weight: 700;
+/* 层级标题样式 */
+.md-typeset h2 {
   border-bottom: 2px solid var(--md-primary-fg-color);
   padding-bottom: 0.5rem;
+}
+
+.md-typeset h3 {
+  color: var(--md-primary-fg-color);
+}
+
+/* 项目结构代码块 */
+.md-typeset pre:has(code:not([class])) {
+  background-color: var(--md-code-bg-color);
+  border-left: 4px solid var(--md-primary-fg-color);
 }
 
 /* 引用块样式 */
 .md-typeset blockquote {
   border-left: 4px solid var(--md-primary-fg-color);
-  background-color: var(--md-code-bg-color);
-  padding: 1rem;
-  margin: 1rem 0;
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--md-default-fg-color--light);
 }
 
-/* 首页徽章居中 */
-p:has(> img[alt*="ISO"]) {
-  text-align: center;
+/* 复选框列表 */
+.md-typeset .task-list-item input[type="checkbox"] {
+  margin-right: 0.5rem;
 }
-
-/* ASIL 等级颜色标识 */
-.asil-d { color: #c62828; font-weight: bold; }
-.asil-c { color: #ef6c00; font-weight: bold; }
-.asil-b { color: #f9a825; font-weight: bold; }
-.asil-a { color: #2e7d32; font-weight: bold; }
-.qm { color: #757575; }
 
 /* 响应式表格 */
-@media screen and (max-width: 76.1875em) {
+@media screen and (max-width: 768px) {
   .md-typeset table:not([class]) {
-    display: block;
-    overflow-x: auto;
+    font-size: 0.65rem;
   }
+  
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    padding: 0.4rem;
+  }
+}
+
+/* 页脚样式 */
+.md-footer-copyright {
+  font-style: italic;
+}
+
+/* 导航标签图标 */
+.md-nav__item--nested > .md-nav__link::before {
+  content: "📁 ";
+}
+
+/* 内容区域最大宽度 */
+.md-content {
+  max-width: 100%;
+}
+
+/* 代码高亮行号 */
+.md-typeset .highlight .linenos {
+  padding-right: 1rem;
+  color: var(--md-default-fg-color--light);
 }
