@@ -38,13 +38,13 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-# Markdown 扩展
+# Markdown 扩展 - 使用 MkDocs Material 官方 Mermaid 配置
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -82,8 +82,8 @@ extra:
   generator: false
 
 extra_javascript:
-  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
-  - javascripts/mermaid-init.js
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+  - javascripts/mermaid.js
 
 extra_css:
   - stylesheets/extra.css
