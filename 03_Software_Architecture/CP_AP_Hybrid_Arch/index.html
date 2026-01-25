@@ -1501,6 +1501,52 @@
 <blockquote>
 <p>本文档详述 AUTOSAR Classic Platform (CP) 与 Adaptive Platform (AP) 的混合通信架构，包含 SOME/IP、DDS 映射以及 Hypervisor 隔离机制。</p>
 </blockquote>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">💡 Michael Lin 的实战经验</p>
+<p><strong>项目背景</strong>: 某域控制器 AUTOSAR AP + CP 混合架构落地</p>
+<p><strong>核心挑战</strong>: </p>
+<ul>
+<li>ASIL D 安全功能与 QM 娱乐功能共存于同一 SoC</li>
+<li>软硬件团队对 FFI (Freedom from Interference) 理解存在分歧</li>
+<li>Hypervisor 与 MPU 双重隔离方案选型争议</li>
+</ul>
+<p><strong>我的解决方案</strong>:</p>
+<ol>
+<li>主导制定 <strong>FFI 验证方案</strong>，明确时间/空间隔离验证用例</li>
+<li>设计 <strong>MPU 区域划分表</strong>，将 ASIL D/B/QM 代码映射到独立内存区域</li>
+<li>协调 Hypervisor 供应商与芯片厂商，完成 <strong>联合安全分析</strong></li>
+<li>建立 <strong>Inter-VM 通信安全机制</strong>，使用 VirtIO + 共享内存方案</li>
+</ol>
+<p><strong>量化成果</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指标</th>
+<th style="text-align: center;">改进效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">架构评审通过率</td>
+<td style="text-align: center;">一次通过</td>
+</tr>
+<tr>
+<td style="text-align: left;">架构返工率</td>
+<td style="text-align: center;">降低 30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">FFI 验证用例覆盖</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td style="text-align: left;">项目延期风险</td>
+<td style="text-align: center;">消除</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
 <h2 id="_1">架构概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="cp-ap">CP 与 AP 定位对比<a class="headerlink" href="#cp-ap" title="Permanent link">&para;</a></h3>
 <table>

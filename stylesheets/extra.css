@@ -4,6 +4,183 @@
  * Author: Michael Lin
  * ============================================================ */
 
+/* ==================== Hero Section ==================== */
+.hero-section {
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #01579b 100%);
+  margin: -1rem -0.8rem 2rem;
+  padding: 3rem 2rem;
+  border-radius: 0 0 24px 24px;
+  color: white;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h2 {
+  color: #ffeb3b !important;
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.hero-text h3 {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+
+.hero-highlights {
+  margin: 1.5rem 0;
+}
+
+.hero-highlights p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.hero-highlights strong {
+  color: white;
+}
+
+.hero-stats {
+  margin-top: 2rem;
+}
+
+.hero-stats table {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.hero-stats th {
+  background: transparent !important;
+  color: #ffeb3b !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  padding: 1rem !important;
+  border: none !important;
+}
+
+.hero-stats td {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 1rem 1rem !important;
+  border: none !important;
+  text-align: center;
+}
+
+.hero-image {
+  flex: 0 0 280px;
+}
+
+.hero-image img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero 响应式 */
+@media screen and (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.6rem;
+  }
+  
+  .hero-text h3 {
+    font-size: 1.1rem;
+  }
+  
+  .hero-image {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+  
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-stats th {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* ==================== 产品统计卡片 ==================== */
+.product-stats table {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.product-stats th {
+  background: transparent !important;
+  color: #1b5e20 !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  padding: 1rem !important;
+}
+
+.product-stats td {
+  color: #2e7d32 !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 1rem 1rem !important;
+  text-align: center;
+}
+
+/* ==================== 指标网格 ==================== */
+.metrics-grid table {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%) !important;
+  border-radius: 12px !important;
+}
+
+.metrics-grid th {
+  background: #ff6f00 !important;
+  color: white !important;
+}
+
+.metrics-grid td:nth-child(2) {
+  color: #e65100 !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ==================== 经验洞察块 ==================== */
+.md-typeset .admonition.success {
+  border-left: 4px solid #4caf50;
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+}
+
+.md-typeset .admonition.success > .admonition-title {
+  background: linear-gradient(135deg, #4caf50 0%, #43a047 100%);
+  color: white;
+}
+
+.md-typeset .admonition.success > .admonition-title::before {
+  background-color: white;
+}
+
 /* ==================== 顶部公告横幅 ==================== */
 .md-banner {
   background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #01579b 100%) !important;

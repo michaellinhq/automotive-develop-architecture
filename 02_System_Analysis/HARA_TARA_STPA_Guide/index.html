@@ -1412,6 +1412,55 @@
 <blockquote>
 <p>本文档详述功能安全分析 (HARA)、信息安全分析 (TARA) 和系统理论过程分析 (STPA) 的方法论、输入输出映射及实施指南。</p>
 </blockquote>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">💡 Michael Lin 的实战经验</p>
+<p><strong>项目背景</strong>: MAGNA 某制动系统 ASIL D 功能安全认证 + ISO 21434 网络安全合规</p>
+<p><strong>核心挑战</strong>: </p>
+<ul>
+<li>HARA 与 TARA 分析团队各自为战，风险评估结果无法对齐</li>
+<li>传统 FMEA 方法遗漏了多个系统级交互风险</li>
+<li>德国 OEM 客户要求功能安全与网络安全分析可追溯关联</li>
+</ul>
+<p><strong>我的解决方案</strong>:</p>
+<ol>
+<li>设计 <strong>HARA-TARA 联合评审模板</strong>，将功能安全与网络安全风险统一映射</li>
+<li>引入 <strong>STPA 控制结构分析</strong>，识别出传统 FMEA 遗漏的 3 个 UCA</li>
+<li>建立 <strong>跨部门风险协调会议机制</strong>，每周同步分析进展</li>
+</ol>
+<p><strong>量化成果</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指标</th>
+<th style="text-align: center;">改进前</th>
+<th style="text-align: center;">改进后</th>
+<th style="text-align: center;">提升</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">安全分析覆盖率</td>
+<td style="text-align: center;">72%</td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;">+40%</td>
+</tr>
+<tr>
+<td style="text-align: left;">评审周期</td>
+<td style="text-align: center;">6 周</td>
+<td style="text-align: center;">2 周</td>
+<td style="text-align: center;">-67%</td>
+</tr>
+<tr>
+<td style="text-align: left;">OEM 退回次数</td>
+<td style="text-align: center;">3 次/项目</td>
+<td style="text-align: center;">0 次</td>
+<td style="text-align: center;">-100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
 <h2 id="_1">方法论概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

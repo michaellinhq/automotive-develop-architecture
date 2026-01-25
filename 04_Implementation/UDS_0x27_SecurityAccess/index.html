@@ -1424,6 +1424,52 @@
 <blockquote>
 <p>本文档详述 UDS 安全访问服务 (SID 0x27) 在 AUTOSAR Classic Platform 中的完整调用栈，包含 PduR → Dcm → Callout → Crypto Driver 的交互流程。</p>
 </blockquote>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">💡 Michael Lin 的实战经验</p>
+<p><strong>项目背景</strong>: 某 ECU 诊断栈 0x27 安全访问功能开发与网络安全加固</p>
+<p><strong>核心挑战</strong>: </p>
+<ul>
+<li>原有 Seed/Key 算法强度不足，被 OEM 安全评估标记为高风险</li>
+<li>Callout 函数设计不符合 AUTOSAR 规范，HSM 集成困难</li>
+<li>缺少防暴力破解机制，安全延时配置不合理</li>
+</ul>
+<p><strong>我的解决方案</strong>:</p>
+<ol>
+<li>重新设计 <strong>Seed/Key 算法</strong>，基于 AES-CMAC + HSM 硬件安全模块</li>
+<li>重构 <strong>Dcm Callout 接口</strong>，符合 AUTOSAR 异步操作模式 (DCM_PENDING)</li>
+<li>实现 <strong>指数退避延时机制</strong>，3 次失败后触发 10 秒安全延时</li>
+<li>编写 <strong>安全访问设计文档</strong>，满足 ISO 21434 安全开发要求</li>
+</ol>
+<p><strong>量化成果</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指标</th>
+<th style="text-align: center;">改进效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">安全评估等级</td>
+<td style="text-align: center;">低风险 → 可接受</td>
+</tr>
+<tr>
+<td style="text-align: left;">暴力破解时间</td>
+<td style="text-align: center;">秒级 → 10年+</td>
+</tr>
+<tr>
+<td style="text-align: left;">HSM 集成时间</td>
+<td style="text-align: center;">缩短 50%</td>
+</tr>
+<tr>
+<td style="text-align: left;">OEM 安全审核</td>
+<td style="text-align: center;">一次通过</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
 <h2 id="_1">服务概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="security-access">Security Access 机制<a class="headerlink" href="#security-access" title="Permanent link">&para;</a></h3>
 <table>

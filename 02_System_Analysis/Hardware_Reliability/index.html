@@ -1523,6 +1523,55 @@
 <blockquote>
 <p>本文档概述硬件可靠性分析方法在汽车功能安全中的应用，重点介绍 FTA（故障树分析）和 FMEA/FMEDA（失效模式分析）在硬件度量计算中的作用。</p>
 </blockquote>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">💡 Michael Lin 的实战经验</p>
+<p><strong>项目背景</strong>: 某 ADAS 域控制器 ASIL D 硬件安全度量计算</p>
+<p><strong>核心挑战</strong>: </p>
+<ul>
+<li>供应商提供的 FMEDA 数据不完整，失效率假设不保守</li>
+<li>FTA 与 FMEDA 分析结果无法关联，PMHF 计算存在缺口</li>
+<li>硬件团队对 SPFM/LFM 目标值理解不一致</li>
+</ul>
+<p><strong>我的解决方案</strong>:</p>
+<ol>
+<li>建立 <strong>FMEDA 数据审查清单</strong>，要求供应商按 IEC 62380 标准提供失效率</li>
+<li>设计 <strong>FTA-FMEDA 关联矩阵</strong>，确保每个基本事件都有对应失效率数据</li>
+<li>组织 <strong>硬件安全度量培训</strong>，统一团队对 ISO 26262-5 要求的理解</li>
+</ol>
+<p><strong>量化成果</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指标</th>
+<th style="text-align: center;">目标值</th>
+<th style="text-align: center;">最终达成</th>
+<th style="text-align: center;">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SPFM</td>
+<td style="text-align: center;">≥ 99%</td>
+<td style="text-align: center;">99.3%</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">LFM</td>
+<td style="text-align: center;">≥ 90%</td>
+<td style="text-align: center;">94.2%</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">PMHF</td>
+<td style="text-align: center;">&lt; 10⁻⁸/h</td>
+<td style="text-align: center;">6.2×10⁻⁹/h</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
 <h2 id="_1">方法论概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div class="mermaid">flowchart TB
     subgraph TopDown["⬇️ 自顶向下方法"]

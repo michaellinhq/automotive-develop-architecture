@@ -1790,6 +1790,62 @@
 <blockquote>
 <p>本文档汇总 MISRA C++:2008 / MISRA C++:2023 中最致命的违规项，提供 Bad Code vs Good Code 对比，帮助开发者编写安全关键软件。</p>
 </blockquote>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">💡 Michael Lin 的实战经验</p>
+<p><strong>项目背景</strong>: 某 ECU 量产代码 MISRA C++ 合规整改</p>
+<p><strong>核心挑战</strong>: </p>
+<ul>
+<li>遗留代码存在 <strong>5000+ MISRA 违规</strong>，开发团队抵触情绪严重</li>
+<li>缺乏优先级策略，团队不知道从何处着手</li>
+<li>Deviation 管理流程缺失，导致合理豁免无法落地</li>
+</ul>
+<p><strong>我的解决方案</strong>:</p>
+<ol>
+<li>制定 <strong>"10 条致命规则优先"</strong> 策略，聚焦动态内存、未初始化指针等高风险违规</li>
+<li>设计 <strong>MISRA Deviation 管理流程</strong>，建立评审-审批-追踪机制</li>
+<li>组织 <strong>代码规范培训 Workshop</strong>，用 Bad vs Good 实例提升团队意识</li>
+<li>引入 <strong>静态分析 CI/CD 集成</strong>，增量代码零容忍策略</li>
+</ol>
+<p><strong>量化成果</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指标</th>
+<th style="text-align: center;">改进前</th>
+<th style="text-align: center;">改进后</th>
+<th style="text-align: center;">提升</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">致命规则违规</td>
+<td style="text-align: center;">847</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-100%</td>
+</tr>
+<tr>
+<td style="text-align: left;">整改周期</td>
+<td style="text-align: center;">预估 6 个月</td>
+<td style="text-align: center;">实际 2 个月</td>
+<td style="text-align: center;">-67%</td>
+</tr>
+<tr>
+<td style="text-align: left;">增量代码违规</td>
+<td style="text-align: center;">未监控</td>
+<td style="text-align: center;">零容忍</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">团队 MISRA 认知</td>
+<td style="text-align: center;">低</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">显著提升</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
 <h2 id="misra-c_1">MISRA C++ 概述<a class="headerlink" href="#misra-c_1" title="Permanent link">&para;</a></h2>
 <h3 id="_1">标准版本<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <table>

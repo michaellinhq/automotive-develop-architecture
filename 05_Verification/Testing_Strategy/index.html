@@ -1549,6 +1549,62 @@
 <blockquote>
 <p>本文档定义基于 ASPICE SWE.5/SWE.6 和 ISO 26262 Part 6 的分层测试策略，按 ASIL 等级推荐验证方法与工具链。</p>
 </blockquote>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">💡 Michael Lin 的实战经验</p>
+<p><strong>项目背景</strong>: 某 ASIL D 制动控制系统 MC/DC 覆盖率达标</p>
+<p><strong>核心挑战</strong>: </p>
+<ul>
+<li>测试团队对 MC/DC 理解不足，覆盖率长期停滞在 85%</li>
+<li>测试用例设计缺乏系统性方法，依赖经验猜测</li>
+<li>缺少自动化覆盖率监控，问题发现滞后</li>
+</ul>
+<p><strong>我的解决方案</strong>:</p>
+<ol>
+<li>编写 <strong>MC/DC 测试用例设计指南</strong>，配合具体代码示例和真值表</li>
+<li>引入 <strong>VectorCAST + 自动化 CI/CD 集成</strong>，每次提交自动检测覆盖率</li>
+<li>建立 <strong>每日覆盖率看板</strong>，红黄绿灯机制推动团队持续改进</li>
+<li>组织 <strong>测试设计 Workshop</strong>，通过实战练习提升团队能力</li>
+</ol>
+<p><strong>量化成果</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指标</th>
+<th style="text-align: center;">改进前</th>
+<th style="text-align: center;">改进后</th>
+<th style="text-align: center;">提升</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MC/DC 覆盖率</td>
+<td style="text-align: center;">85%</td>
+<td style="text-align: center;">98%</td>
+<td style="text-align: center;">+15%</td>
+</tr>
+<tr>
+<td style="text-align: left;">验证周期</td>
+<td style="text-align: center;">8 周</td>
+<td style="text-align: center;">1.2 周</td>
+<td style="text-align: center;">-85%</td>
+</tr>
+<tr>
+<td style="text-align: left;">回归测试自动化率</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">95%</td>
+<td style="text-align: center;">+375%</td>
+</tr>
+<tr>
+<td style="text-align: left;">缺陷逃逸率</td>
+<td style="text-align: center;">8%</td>
+<td style="text-align: center;">&lt;2%</td>
+<td style="text-align: center;">-75%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
 <h2 id="v-model">V-Model 右侧映射<a class="headerlink" href="#v-model" title="Permanent link">&para;</a></h2>
 <div class="mermaid">flowchart RL
     subgraph Design["⬇️ 设计侧"]
