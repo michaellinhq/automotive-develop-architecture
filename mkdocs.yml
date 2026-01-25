@@ -8,26 +8,24 @@ theme:
   name: material
   language: zh
   features:
-    - navigation.tabs           # 顶部导航栏
-    - navigation.tabs.sticky    # 固定导航栏
-    - navigation.sections       # 侧边栏分组
-    - navigation.expand         # 展开侧边栏
-    - navigation.indexes        # 目录索引
-    - navigation.top            # 返回顶部按钮
-    - toc.integrate             # 目录集成到右侧
-    - search.suggest            # 搜索建议
-    - search.highlight          # 搜索高亮
-    - content.code.copy         # 代码复制按钮
-    - content.code.annotate     # 代码注释
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
   palette:
-    # 浅色模式
     - scheme: default
       primary: indigo
       accent: blue
       toggle:
         icon: material/weather-night
         name: 切换到暗黑模式
-    # 暗黑模式（极客最爱）
     - scheme: slate
       primary: black
       accent: indigo
@@ -40,7 +38,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-# 激活 Mermaid 图表和代码高亮扩展
+# Markdown 扩展
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
@@ -76,7 +74,6 @@ plugins:
       lang: 
         - zh
         - en
-  - mermaid2
 
 extra:
   social:
@@ -86,11 +83,12 @@ extra:
 
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
 
 extra_css:
   - stylesheets/extra.css
 
-# 极其专业的 ASPICE 导航结构
+# 导航结构
 nav:
   - 🏠 专家首页: index.md
   - 🗺️ V-Model 架构总览: ASPICE_V_Model_Map.md
