@@ -1,0 +1,42 @@
+# GitHub Pages Jekyll Configuration
+# Site: Automotive Software Architecture Knowledge Base
+
+# Basic Site Settings
+title: "Automotive Safety & Architecture Knowledge Base"
+description: "Enterprise-Grade Knowledge Repository for ASPICE, ISO 26262, AUTOSAR, and Automotive E/E Architecture"
+author: "michaellinhq"
+url: "https://michaellinhq.github.io"
+baseurl: "/automotive-develop-architecture"
+
+# Theme - 使用简洁专业的主题
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
+
+# Markdown 渲染设置
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# 排除不需要的文件
+exclude:
+  - README.md
+  - LICENSE
+  - CHANGELOG.md
+  - .gitignore
+  - node_modules/
+  - vendor/
+
+# 导航结构
+header_pages:
+  - ASPICE_V_Model_Map.md
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
