@@ -1,7 +1,7 @@
 site_name: Automotive Engineering & Safety Architecture
 site_description: From Regulatory Compliance to Raw Pointers — 汽车软件架构全栈知识库
 site_author: Michael Lin (Senior Architect)
-site_url: https://michaellinhq.github.io/automotive-develop-architecture/
+site_url: https://docs.compliance-waechter.com/
 repo_url: https://github.com/michaellinhq/automotive-develop-architecture
 repo_name: michaellinhq/automotive-develop-architecture
 
@@ -93,9 +93,11 @@ plugins:
           default: true
           name: 中文
           build: true
+          link: /
         - locale: en
           name: English
           build: true
+          link: /en/
           nav_translations:
             "🏠 专家首页": "Home"
             "🗺️ V-Model 架构总览": "V-Model Overview"
@@ -120,10 +122,10 @@ extra:
   # 语言切换
   alternate:
     - name: 中文
-      link: /automotive-develop-architecture/
+      link: /
       lang: zh
     - name: English
-      link: /automotive-develop-architecture/en/
+      link: /en/
       lang: en
 
   # 公告横幅文字
