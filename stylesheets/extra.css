@@ -249,6 +249,83 @@ p:has(> img[alt*="ISO"]) {
   background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
 }
 
+/* ============================================
+   顶部公告区 AI 按钮
+   ============================================ */
+
+.announce-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.announce-left {
+  flex: 1 1 auto;
+}
+
+.announce-right {
+  flex: 0 0 auto;
+}
+
+.announce-ai-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.announce-ai-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   划线查询工具条
+   ============================================ */
+
+.ai-selection-toolbar {
+  position: absolute;
+  z-index: 9998;
+  background: #0d47a1;
+  color: #fff;
+  border-radius: 999px;
+  padding: 6px 8px;
+  gap: 6px;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.ai-ask-btn {
+  border: none;
+  background: #ffeb3b;
+  color: #1a237e;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.ai-close-btn {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
 /* 移动端响应式 */
 @media screen and (max-width: 768px) {
   .language-switcher-float {

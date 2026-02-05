@@ -100,7 +100,8 @@ plugins:
           link: /en/
           nav_translations:
             "🏠 专家首页": "Home"
-            "🗺️ V-Model 架构总览": "V-Model Overview"
+          "🗺️ V-Model 架构总览": "V-Model Overview"
+          "🤖 Free AI Model Finder": "Free AI Model Finder"
             "📋 Level 1 - 法规与需求": "Level 1 - Regulations & Requirements"
             "法规矩阵总览": "Regulations Matrix"
             "🔍 Level 2 - 系统与安全分析": "Level 2 - System & Safety Analysis"
@@ -167,6 +168,7 @@ extra_css:
 nav:
   - 🏠 专家首页: index.md
   - 🗺️ V-Model 架构总览: ASPICE_V_Model_Map.md
+  - 🤖 Free AI Model Finder: ai-models.md
   - 📋 Level 1 - 法规与需求:
     - 法规矩阵总览: 01_Standards_Level/Regulations_Matrix.md
   - 🔍 Level 2 - 系统与安全分析:
