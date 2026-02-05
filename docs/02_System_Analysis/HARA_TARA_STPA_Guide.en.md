@@ -51,22 +51,22 @@ STPA is a system-theoretic hazard analysis method proposed by Prof. Nancy Leveso
 
 ```mermaid
 flowchart TB
-    subgraph Controller["🎮 Controller"]
+    subgraph Controller[" Controller"]
         direction TB
         PM["Process Model"]
         CA["Control Algorithm"]
         PM --> CA
     end
 
-    subgraph Actuator["⚙️ Actuator"]
+    subgraph Actuator["️ Actuator"]
         ACT["Actuation"]
     end
 
-    subgraph Process["🔄 Controlled Process"]
+    subgraph Process[" Controlled Process"]
         CP["Physical process / system state"]
     end
 
-    subgraph Sensor["📡 Sensor"]
+    subgraph Sensor[" Sensor"]
         SEN["Sensing device"]
     end
 
@@ -75,7 +75,7 @@ flowchart TB
     Process -->|"Physical Output"| Sensor
     Sensor -->|"Feedback"| Controller
 
-    subgraph UCA["⚠️ Types of Unsafe Control Actions"]
+    subgraph UCA["️ Types of Unsafe Control Actions"]
         direction LR
         UCA1["1. Required control action not provided"]
         UCA2["2. Unsafe control action provided"]
@@ -129,16 +129,16 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    subgraph Environment["🌍 Environment"]
+    subgraph Environment[" Environment"]
         OBJ["Objects<br/>(vehicles/pedestrians)"]
         ROAD["Road environment"]
     end
 
-    subgraph Driver["👤 Driver"]
+    subgraph Driver[" Driver"]
         DRV["Driver input"]
     end
 
-    subgraph ADAS_Controller["🖥️ ADAS Controller"]
+    subgraph ADAS_Controller["️ ADAS Controller"]
         direction TB
         subgraph ProcessModel["Process Model"]
             PM1["Object state estimation"]
@@ -153,20 +153,20 @@ flowchart TB
         ProcessModel --> Algorithm
     end
 
-    subgraph Perception["📷 Perception"]
+    subgraph Perception[" Perception"]
         CAM["Camera"]
         RAD["Radar"]
         LID["LiDAR"]
         USS["Ultrasonic"]
     end
 
-    subgraph Actuation["⚙️ Actuation"]
+    subgraph Actuation["️ Actuation"]
         BRK["Brake system"]
         STR["Steering system"]
         ACC["Powertrain"]
     end
 
-    subgraph Vehicle["🚗 Vehicle Dynamics"]
+    subgraph Vehicle[" Vehicle Dynamics"]
         VEH["Vehicle state"]
     end
 
@@ -201,14 +201,14 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph Inputs["📥 Common Inputs"]
+    subgraph Inputs[" Common Inputs"]
         I1["System definition & boundaries"]
         I2["Functional description"]
         I3["Operational scenarios"]
         I4["Stakeholder information"]
     end
 
-    subgraph HARA_Process["🛡️ HARA Process (ISO 26262)"]
+    subgraph HARA_Process["️ HARA Process (ISO 26262)"]
         direction TB
         H1["Item definition"]
         H2["Hazard identification"]
@@ -219,7 +219,7 @@ flowchart TB
         H1 --> H2 --> H3 --> H4 --> H5 --> H6
     end
 
-    subgraph TARA_Process["🔐 TARA Process (ISO 21434)"]
+    subgraph TARA_Process[" TARA Process (ISO 21434)"]
         direction TB
         T1["Asset identification"]
         T2["Threat identification"]
@@ -230,14 +230,14 @@ flowchart TB
         T1 --> T2 --> T3 --> T4 --> T5 --> T6
     end
 
-    subgraph HARA_Outputs["📤 HARA Outputs"]
+    subgraph HARA_Outputs[" HARA Outputs"]
         HO1["Hazard list"]
         HO2["ASIL level"]
         HO3["Functional safety goals"]
         HO4["Safety requirements"]
     end
 
-    subgraph TARA_Outputs["📤 TARA Outputs"]
+    subgraph TARA_Outputs[" TARA Outputs"]
         TO1["Threat list"]
         TO2["CAL level"]
         TO3["Cybersecurity goals"]
@@ -318,7 +318,7 @@ flowchart LR
     HARA_Analysis -->|"Same failure mode"| Integration
     TARA_Analysis -->|"Attack can cause"| Integration
 
-    subgraph Integration["🔗 Integrated Safety Requirements"]
+    subgraph Integration[" Integrated Safety Requirements"]
         INT1["Must satisfy ASIL D and CAL 4"]
         INT2["Safety mechanisms must resist faults and attacks"]
     end

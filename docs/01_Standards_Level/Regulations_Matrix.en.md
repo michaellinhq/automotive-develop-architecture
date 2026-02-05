@@ -116,19 +116,17 @@ Core goal: Establish cybersecurity management system
 ```mermaid
 flowchart TD
     subgraph CSMS["Cybersecurity Management System"]
-        A[Risk Identification] --> B[Risk Assessment]
-        B --> C[Risk Treatment]
-        C --> D[Monitoring & Response]
+        A["Risk Identification"] --> B["Risk Assessment"]
+        B --> C["Risk Treatment"]
+        C --> D["Monitoring & Response"]
         D --> A
     end
 
     subgraph Scope["Management Scope"]
-        S1[Development Security]
-        S2[Production Security]
-        S3[Post-production Security]
+        S1["Development Security"]
+        S2["Production Security"]
+        S3["Post-production Security"]
     end
-
-    CSMS --> Scope
 ```
 
 ### System Boundary Constraints
@@ -220,23 +218,23 @@ Core goal: Ensure CMS provides equivalent or superior field of view
 ```mermaid
 flowchart LR
     subgraph FunctionalSafety["Functional Safety Domain"]
-        R79[R79 Steering]
-        R152[R152 AEBS]
-        R171[R171 CMS]
+        R79["R79 Steering"]
+        R152["R152 AEBS"]
+        R171["R171 CMS"]
     end
 
     subgraph Cybersecurity["Cybersecurity Domain"]
-        R155[R155 CSMS]
-        R156[R156 SUMS]
+        R155["R155 CSMS"]
+        R156["R156 SUMS"]
     end
 
-    R155 <-->|Secure updates| R156
-    R79 -->|ADAS functions| R155
-    R152 -->|Active safety| R155
-    R171 -->|Perception system| R155
+    R155 -->|"Secure updates"| R156
+    R79 -->|"ADAS functions"| R155
+    R152 -->|"Active safety"| R155
+    R171 -->|"Perception system"| R155
 
-    ISO26262[ISO 26262] -.->|Functional safety standard| FunctionalSafety
-    ISO21434[ISO 21434] -.->|Cybersecurity standard| Cybersecurity
+    ISO26262["ISO 26262"] -.->|"Functional safety standard"| FunctionalSafety
+    ISO21434["ISO 21434"] -.->|"Cybersecurity standard"| Cybersecurity
 ```
 
 ## Compliance Checklist

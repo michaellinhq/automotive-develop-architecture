@@ -7,7 +7,7 @@
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5fe', 'primaryTextColor': '#01579b', 'primaryBorderColor': '#0288d1', 'lineColor': '#0288d1', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
 flowchart TB
-    subgraph Level1["📋 Level 1: Regulations & Standards"]
+    subgraph Level1[" Level 1: Regulations & Standards"]
         direction LR
         REG["UN Regulations<br/>R79 | R152 | R155 | R156 | R171"]
         STD["ISO Standards<br/>ISO 26262 | ISO 21434 | ISO 21448"]

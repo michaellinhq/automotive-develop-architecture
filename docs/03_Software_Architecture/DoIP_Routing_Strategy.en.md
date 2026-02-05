@@ -64,11 +64,11 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph External["🔧 External Diagnostics"]
+    subgraph External[" External Diagnostics"]
         TESTER["Tester"]
     end
 
-    subgraph Vehicle["🚗 Vehicle Network"]
+    subgraph Vehicle[" Vehicle Network"]
         subgraph Backbone["Ethernet Backbone"]
             direction LR
             OBD["OBD-II Port<br/>(DoIP Entity)"]
@@ -112,10 +112,10 @@ flowchart TB
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Tester as 🔧 Tester<br/>(External tool)
-    participant OBD as 📍 OBD Port<br/>(Physical entry)
-    participant Edge as 🔀 Edge Node<br/>(DoIP Gateway)
-    participant Target as 📦 Target ECU<br/>(CAN Node)
+    participant Tester as  Tester<br/>(External tool)
+    participant OBD as  OBD Port<br/>(Physical entry)
+    participant Edge as  Edge Node<br/>(DoIP Gateway)
+    participant Target as  Target ECU<br/>(CAN Node)
 
     Note over Tester,Edge: ═══ Phase 1: TCP 3-way Handshake ═══
 
@@ -143,9 +143,9 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Tester as 🔧 Tester
-    participant Edge as 🔀 Edge Node
-    participant Target as 📦 Target ECU
+    participant Tester as  Tester
+    participant Edge as  Edge Node
+    participant Target as  Target ECU
 
     Note over Tester,Edge: ═══ Phase 3: Routing Activation ═══
 
@@ -194,10 +194,10 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Tester as 🔧 Tester<br/>(SA: 0x0E00)
-    participant Edge as 🔀 Edge Node<br/>(DoIP Gateway)
-    participant CAN_GW as 🔌 CAN Gateway
-    participant Target as 📦 Target ECU<br/>(TA: 0x0741)
+    participant Tester as  Tester<br/>(SA: 0x0E00)
+    participant Edge as  Edge Node<br/>(DoIP Gateway)
+    participant CAN_GW as  CAN Gateway
+    participant Target as  Target ECU<br/>(TA: 0x0741)
 
     Note over Tester,Target: ═══ Phase 4: Diagnostic Message Transfer ═══
 

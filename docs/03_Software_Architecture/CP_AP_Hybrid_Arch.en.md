@@ -53,10 +53,10 @@
 
 ```mermaid
 flowchart TB
-    subgraph Vehicle["🚗 Vehicle Architecture"]
+    subgraph Vehicle[" Vehicle Architecture"]
         direction TB
 
-        subgraph HPC["🖥️ High-Performance Computing (HPC/Domain Controller)"]
+        subgraph HPC["️ High-Performance Computing (HPC/Domain Controller)"]
             subgraph Hypervisor["Type-1 Hypervisor Layer"]
                 direction LR
 
@@ -106,14 +106,14 @@ flowchart TB
             end
         end
 
-        subgraph Network["🔌 In-Vehicle Network"]
+        subgraph Network[" In-Vehicle Network"]
             direction LR
             ETH["Automotive Ethernet<br/>(100BASE-T1/1000BASE-T1)"]
             CAN_FD["CAN FD Bus"]
             CAN_STD["CAN Bus"]
         end
 
-        subgraph ECU_Zone["📦 Zone/Node ECUs"]
+        subgraph ECU_Zone[" Zone/Node ECUs"]
             direction LR
             subgraph Zone1["Zone ECU 1"]
                 CP1["CP Stack"]
@@ -313,14 +313,14 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph Hardware["🔧 Hardware Platform"]
+    subgraph Hardware[" Hardware Platform"]
         CPU["Multi-core CPU<br/>(ARM/x86)"]
         MEM["Physical memory"]
         IO["I/O devices"]
         IOMMU["IOMMU/SMMU"]
     end
 
-    subgraph Hypervisor["⚙️ Type-1 Hypervisor"]
+    subgraph Hypervisor["️ Type-1 Hypervisor"]
         direction TB
         SCHED["Partitioning Scheduler"]
         MMU["Memory virtualization<br/>(Stage-2 Translation)"]
@@ -328,7 +328,7 @@ flowchart TB
         HEALTH["Health Monitor"]
     end
 
-    subgraph VMs["🖥️ VM Partitions"]
+    subgraph VMs["️ VM Partitions"]
         direction LR
 
         subgraph VM1["VM1: Safety Critical"]
@@ -420,24 +420,24 @@ flowchart TB
         subgraph Memory_Map["Memory Layout"]
             direction TB
 
-            subgraph ASIL_D_Region["🔴 ASIL D Region"]
+            subgraph ASIL_D_Region[" ASIL D Region"]
                 ASIL_CODE["ASIL D Code<br/>(R-X)"]
                 ASIL_DATA["ASIL D Data<br/>(R-W)"]
                 ASIL_STACK["ASIL D Stack<br/>(R-W)"]
             end
 
-            subgraph ASIL_B_Region["🟡 ASIL B Region"]
+            subgraph ASIL_B_Region[" ASIL B Region"]
                 ASILB_CODE["ASIL B Code<br/>(R-X)"]
                 ASILB_DATA["ASIL B Data<br/>(R-W)"]
             end
 
-            subgraph QM_Region["🟢 QM Region"]
+            subgraph QM_Region[" QM Region"]
                 QM_CODE["QM Code<br/>(R-X)"]
                 QM_DATA["QM Data<br/>(R-W)"]
                 QM_STACK["QM Stack<br/>(R-W)"]
             end
 
-            subgraph Shared_Region["⚪ Shared Region"]
+            subgraph Shared_Region[" Shared Region"]
                 SHARED["Exchange Buffer<br/>(Controlled Access)"]
             end
         end

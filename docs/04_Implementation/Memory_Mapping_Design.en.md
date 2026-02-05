@@ -691,37 +691,37 @@ void Mpu_Init(void) {
 
 ```mermaid
 flowchart TB
-    subgraph SourceCode["📝 Source Code"]
+    subgraph SourceCode[" Source Code"]
         direction LR
         CODE1["Ecu_Safety.c"]
         CODE2["Dcm.c"]
     end
 
-    subgraph MemMap["🔧 MemMap.h"]
+    subgraph MemMap[" MemMap.h"]
         direction TB
         MM1["#define ECU_SAFETY_START_SEC_CODE"]
         MM2["Expanded to section attributes"]
     end
 
-    subgraph Compiler["⚙️ Compiler"]
+    subgraph Compiler["️ Compiler"]
         direction TB
         OBJ1["Ecu_Safety.o<br/>with .text_ASIL_D"]
         OBJ2["Dcm.o<br/>with .text_QM"]
     end
 
-    subgraph Linker["🔗 Linker"]
+    subgraph Linker[" Linker"]
         direction TB
         LD1["Linker script defines memory regions"]
         LD2["Assign sections to physical addresses"]
     end
 
-    subgraph Binary["📦 Output"]
+    subgraph Binary[" Output"]
         ELF["app.elf"]
         HEX["app.hex"]
         MAP["app.map"]
     end
 
-    subgraph Memory["💾 Physical Memory"]
+    subgraph Memory[" Physical Memory"]
         direction TB
 
         subgraph Flash_Layout["Flash"]

@@ -42,7 +42,7 @@ flowchart TB
         FMEDA["FMEDA<br/>Failure Mode, Effects & Diagnostic Analysis"]
     end
 
-    subgraph Metrics["📊 Hardware Metrics"]
+    subgraph Metrics[" Hardware Metrics"]
         SPFM["SPFM<br/>Single-Point Fault Metric"]
         LFM["LFM<br/>Latent Fault Metric"]
         PMHF["PMHF<br/>Probabilistic Metric for Hardware Failures"]
@@ -90,7 +90,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    TOP["🔴 AEB Function Failure<br/>(Top Event)"]
+    TOP[" AEB Function Failure<br/>(Top Event)"]
 
     TOP --> OR1{OR}
 
@@ -219,19 +219,19 @@ flowchart TD
 
     FM --> Q1{Violates safety goals?}
 
-    Q1 -->|No| SAFE["✅ Safe Fault"]
+    Q1 -->|No| SAFE[" Safe Fault"]
 
     Q1 -->|Yes| Q2{Diagnosed?}
 
-    Q2 -->|Fully covered| DETECTED["🔍 Detected Fault"]
+    Q2 -->|Fully covered| DETECTED[" Detected Fault"]
 
-    Q2 -->|Partially covered| RESIDUAL["⚠️ Residual Fault"]
+    Q2 -->|Partially covered| RESIDUAL["️ Residual Fault"]
 
     Q2 -->|Not covered| Q3{Independent redundancy?}
 
-    Q3 -->|Yes| MPF["🔸 Multi-Point Fault"]
+    Q3 -->|Yes| MPF[" Multi-Point Fault"]
 
-    Q3 -->|No| SPF["🔴 Single-Point Fault"]
+    Q3 -->|No| SPF[" Single-Point Fault"]
 
     style SAFE fill:#c8e6c9,stroke:#388e3c
     style DETECTED fill:#fff9c4,stroke:#f9a825

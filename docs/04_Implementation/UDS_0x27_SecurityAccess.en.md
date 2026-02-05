@@ -113,7 +113,7 @@ flowchart TB
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Tester as 🔧 Tester
+    participant Tester as  Tester
     participant CanIf as CanIf
     participant PduR as PduR
     participant Dcm as Dcm
@@ -194,7 +194,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Tester as 🔧 Tester
+    participant Tester as  Tester
     participant CanIf as CanIf
     participant PduR as PduR
     participant Dcm as Dcm
