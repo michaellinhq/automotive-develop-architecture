@@ -96,25 +96,24 @@ plugins:
         - locale: en
           name: English
           build: true
-      nav_translations:
-        en:
-          "🏠 专家首页": "Home"
-          "🗺️ V-Model 架构总览": "V-Model Overview"
-          "📋 Level 1 - 法规与需求": "Level 1 - Regulations & Requirements"
-          "法规矩阵总览": "Regulations Matrix"
-          "🔍 Level 2 - 系统与安全分析": "Level 2 - System & Safety Analysis"
-          "HARA / TARA / STPA 分析": "HARA / TARA / STPA"
-          "硬件度量 (FTA/FMEA)": "Hardware Reliability (FTA/FMEA)"
-          "🏗️ Level 3 - 软件架构设计": "Level 3 - Software Architecture"
-          "CP/AP 混合架构": "CP/AP Hybrid Architecture"
-          "DoIP 路由策略": "DoIP Routing Strategy"
-          "💻 Level 4 - 编码与实现": "Level 4 - Implementation"
-          "UDS 0x27 安全访问": "UDS 0x27 Security Access"
-          "MISRA C++ 核心规则": "MISRA C++ Golden Rules"
-          "内存映射设计": "Memory Mapping Design"
-          "✅ Level 5 - 验证与集成": "Level 5 - Verification & Integration"
-          "V-Model 测试策略": "V-Model Testing Strategy"
-          "🛠️ Compliance-Wächter ↗": "Compliance-Wächter ↗"
+          nav_translations:
+            "🏠 专家首页": "Home"
+            "🗺️ V-Model 架构总览": "V-Model Overview"
+            "📋 Level 1 - 法规与需求": "Level 1 - Regulations & Requirements"
+            "法规矩阵总览": "Regulations Matrix"
+            "🔍 Level 2 - 系统与安全分析": "Level 2 - System & Safety Analysis"
+            "HARA / TARA / STPA 分析": "HARA / TARA / STPA"
+            "硬件度量 (FTA/FMEA)": "Hardware Reliability (FTA/FMEA)"
+            "🏗️ Level 3 - 软件架构设计": "Level 3 - Software Architecture"
+            "CP/AP 混合架构": "CP/AP Hybrid Architecture"
+            "DoIP 路由策略": "DoIP Routing Strategy"
+            "💻 Level 4 - 编码与实现": "Level 4 - Implementation"
+            "UDS 0x27 安全访问": "UDS 0x27 Security Access"
+            "MISRA C++ 核心规则": "MISRA C++ Golden Rules"
+            "内存映射设计": "Memory Mapping Design"
+            "✅ Level 5 - 验证与集成": "Level 5 - Verification & Integration"
+            "V-Model 测试策略": "V-Model Testing Strategy"
+            "🛠️ Compliance-Wächter ↗": "Compliance-Wächter ↗"
 
 # 额外配置
 extra:
