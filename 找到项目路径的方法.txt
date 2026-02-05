@@ -1,0 +1,39 @@
+🔍 如何找到你的项目文件夹
+
+方法1：记住你之前选择的文件夹
+=====================================
+还记得在 Cowork 中点"选择文件夹"时选的哪个吗？
+就是那个文件夹！
+
+方法2：使用 Spotlight 搜索
+=====================================
+1. 按 Cmd + Space
+2. 搜索：automotive-develop-architecture
+3. 找到文件夹后，右键 → "在 Finder 中显示"
+
+方法3：常见位置
+=====================================
+检查这些位置：
+  ~/Desktop/automotive-develop-architecture
+  ~/Documents/automotive-develop-architecture
+  ~/Developer/automotive-develop-architecture
+  ~/Projects/automotive-develop-architecture
+
+方法4：终端查找（最可靠）
+=====================================
+打开终端，运行：
+
+  find ~ -name "automotive-develop-architecture" -type d 2>/dev/null
+
+找到后，cd 进去：
+
+  cd /path/显示出来的路径
+
+方法5：看浏览器历史
+=====================================
+如果你从 GitHub 克隆的，检查：
+  cd ~/
+  ls -la | grep auto
+
+找到后，记住这个路径！
+然后在那个文件夹里打开终端运行部署命令。
