@@ -84,7 +84,7 @@ plugins:
         - zh
         - en
   - i18n:
-      docs_structure: folder
+      docs_structure: suffix
       fallback_to_default: true
       reconfigure_material: true
       reconfigure_search: true
