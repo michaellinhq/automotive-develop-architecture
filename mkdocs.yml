@@ -120,6 +120,9 @@ plugins:
 
 # 额外配置
 extra:
+  # AI assistant API (Cloudflare Worker)
+  ai_assistant_api: "https://YOUR_WORKER_SUBDOMAIN.workers.dev/v1/ask"
+  ai_default_model: "llama-3.1-8b-instant"
   # 语言切换
   alternate:
     - name: 中文

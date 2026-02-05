@@ -1,0 +1,7 @@
+name = "cw-ai-helper"
+main = "worker.js"
+compatibility_date = "2025-02-05"
+
+[vars]
+DEFAULT_MODEL = "llama-3.1-8b-instant"
+ALLOWED_ORIGIN = "https://docs.compliance-waechter.com"

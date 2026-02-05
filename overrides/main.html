@@ -45,6 +45,24 @@
   <button id="ai-close-btn" class="ai-close-btn" type="button" aria-label="Close">✕</button>
 </div>
 
+<!-- AI Drawer -->
+<aside id="ai-drawer" class="ai-drawer" aria-hidden="true">
+  <div class="ai-drawer-header">
+    <div class="ai-drawer-title">AI Assistant</div>
+    <button id="ai-drawer-close" class="ai-drawer-close" type="button" aria-label="Close">✕</button>
+  </div>
+  <div class="ai-drawer-body">
+    <label class="ai-label" for="ai-input">Selected text</label>
+    <textarea id="ai-input" class="ai-input" rows="6" placeholder="Select text on the page or paste here..."></textarea>
+    <div class="ai-row">
+      <input id="ai-model" class="ai-model" type="text" placeholder="Model (optional)" />
+      <button id="ai-send-btn" class="ai-send-btn" type="button">Ask</button>
+    </div>
+    <div id="ai-status" class="ai-status"></div>
+    <div id="ai-output" class="ai-output"></div>
+  </div>
+</aside>
+
 <!-- 微信二维码弹窗 -->
 <div id="wechat-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
   <div style="background:white; padding:2.5rem; border-radius:16px; text-align:center; max-width:360px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
@@ -67,6 +85,8 @@
 
 <script>
 const AI_MODEL_CATALOG = [];
+const AI_API_URL = "{{ config.extra.ai_assistant_api | default('') }}";
+const AI_DEFAULT_MODEL = "{{ config.extra.ai_default_model | default('') }}";
 
 function getSelectedText() {
   const selection = window.getSelection();
@@ -93,6 +113,20 @@ function hideToolbar() {
   const toolbar = document.getElementById('ai-selection-toolbar');
   if (!toolbar) return;
   toolbar.style.display = 'none';
+}
+
+function openDrawer() {
+  const drawer = document.getElementById('ai-drawer');
+  if (!drawer) return;
+  drawer.classList.add('open');
+  drawer.setAttribute('aria-hidden', 'false');
+}
+
+function closeDrawer() {
+  const drawer = document.getElementById('ai-drawer');
+  if (!drawer) return;
+  drawer.classList.remove('open');
+  drawer.setAttribute('aria-hidden', 'true');
 }
 
 document.addEventListener('mouseup', () => {
@@ -124,10 +158,60 @@ document.getElementById('ai-ask-btn').addEventListener('click', () => {
     hideToolbar();
     return;
   }
-  const query = encodeURIComponent(text);
-  const url = `/ai-models/?q=${query}`;
-  window.open(url, '_blank');
+  const input = document.getElementById('ai-input');
+  if (input) input.value = text;
+  const modelInput = document.getElementById('ai-model');
+  if (modelInput && AI_DEFAULT_MODEL) modelInput.value = AI_DEFAULT_MODEL;
+  openDrawer();
   hideToolbar();
+});
+
+document.getElementById('ai-drawer-close').addEventListener('click', () => {
+  closeDrawer();
+});
+
+document.getElementById('ai-send-btn').addEventListener('click', async () => {
+  const input = document.getElementById('ai-input');
+  const output = document.getElementById('ai-output');
+  const status = document.getElementById('ai-status');
+  const modelInput = document.getElementById('ai-model');
+
+  if (!input || !output || !status) return;
+  const text = input.value.trim();
+  const model = modelInput ? modelInput.value.trim() : "";
+
+  if (!text) {
+    status.textContent = "Please select or paste text first.";
+    return;
+  }
+  if (!AI_API_URL) {
+    status.textContent = "AI API is not configured.";
+    return;
+  }
+
+  status.textContent = "Thinking...";
+  output.textContent = "";
+
+  try {
+    const resp = await fetch(AI_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, model })
+    });
+
+    const data = await resp.json();
+    if (!resp.ok) {
+      status.textContent = "Request failed.";
+      output.textContent = JSON.stringify(data, null, 2);
+      return;
+    }
+
+    status.textContent = "";
+    output.textContent = data.answer || "No response.";
+  } catch (err) {
+    status.textContent = "Request error.";
+    output.textContent = String(err);
+  }
 });
 
 document.querySelectorAll('a[href="#wechat-qrcode"]').forEach(function(el) {
