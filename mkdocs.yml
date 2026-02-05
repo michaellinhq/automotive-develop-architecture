@@ -80,16 +80,20 @@ markdown_extensions:
 
 plugins:
   - search:
-      lang: 
+      lang:
         - zh
         - en
   - i18n:
-      default_language: zh
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
       languages:
-        zh:
+        - locale: zh
+          default: true
           name: 中文
           build: true
-        en:
+        - locale: en
           name: English
           build: true
       nav_translations:
