@@ -1,47 +1,311 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/ASPICE_V_Model_Map/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/ASPICE_V_Model_Map.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/ASPICE_V_Model_Map.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/ASPICE_V_Model_Map.en/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/01_Standards_Level/Regulations_Matrix/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/ASPICE_V_Model_Map/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/ASPICE_V_Model_Map/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/ASPICE_V_Model_Map/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/HARA_TARA_STPA_Guide/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/index.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/index.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/index.en/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/Hardware_Reliability/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/01_Standards_Level/Regulations_Matrix.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/01_Standards_Level/Regulations_Matrix.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/01_Standards_Level/Regulations_Matrix.en/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/CP_AP_Hybrid_Arch/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/01_Standards_Level/Regulations_Matrix/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/01_Standards_Level/Regulations_Matrix/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/01_Standards_Level/Regulations_Matrix/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/DoIP_Routing_Strategy/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/HARA_TARA_STPA_Guide.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/HARA_TARA_STPA_Guide.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/HARA_TARA_STPA_Guide.en/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/MISRA_Cpp_Golden_Rules/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/HARA_TARA_STPA_Guide/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/HARA_TARA_STPA_Guide/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/HARA_TARA_STPA_Guide/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/Memory_Mapping_Design/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/Hardware_Reliability.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/Hardware_Reliability.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/Hardware_Reliability.en/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/UDS_0x27_SecurityAccess/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/Hardware_Reliability/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/Hardware_Reliability/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/Hardware_Reliability/"/>
     </url>
     <url>
-         <loc>https://michaellinhq.github.io/automotive-develop-architecture/05_Verification/Testing_Strategy/</loc>
-         <lastmod>2026-01-25</lastmod>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/CP_AP_Hybrid_Arch.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/CP_AP_Hybrid_Arch.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/CP_AP_Hybrid_Arch.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/CP_AP_Hybrid_Arch/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/CP_AP_Hybrid_Arch/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/CP_AP_Hybrid_Arch/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/DoIP_Routing_Strategy.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/DoIP_Routing_Strategy.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/DoIP_Routing_Strategy.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/DoIP_Routing_Strategy/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/DoIP_Routing_Strategy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/DoIP_Routing_Strategy/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/MISRA_Cpp_Golden_Rules.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/MISRA_Cpp_Golden_Rules.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/MISRA_Cpp_Golden_Rules.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/MISRA_Cpp_Golden_Rules/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/MISRA_Cpp_Golden_Rules/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/MISRA_Cpp_Golden_Rules/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/Memory_Mapping_Design.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/Memory_Mapping_Design.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/Memory_Mapping_Design.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/Memory_Mapping_Design/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/Memory_Mapping_Design/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/Memory_Mapping_Design/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/UDS_0x27_SecurityAccess.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/UDS_0x27_SecurityAccess.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/UDS_0x27_SecurityAccess.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/UDS_0x27_SecurityAccess/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/UDS_0x27_SecurityAccess/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/UDS_0x27_SecurityAccess/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/05_Verification/Testing_Strategy.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/05_Verification/Testing_Strategy.en/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/05_Verification/Testing_Strategy.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/05_Verification/Testing_Strategy/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/05_Verification/Testing_Strategy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/05_Verification/Testing_Strategy/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/ASPICE_V_Model_Map.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/ASPICE_V_Model_Map.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/ASPICE_V_Model_Map.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/ASPICE_V_Model_Map/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/ASPICE_V_Model_Map/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/ASPICE_V_Model_Map/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/index.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/index.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/index.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/01_Standards_Level/Regulations_Matrix.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/01_Standards_Level/Regulations_Matrix.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/01_Standards_Level/Regulations_Matrix.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/01_Standards_Level/Regulations_Matrix/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/01_Standards_Level/Regulations_Matrix/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/01_Standards_Level/Regulations_Matrix/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/HARA_TARA_STPA_Guide.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/HARA_TARA_STPA_Guide.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/HARA_TARA_STPA_Guide.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/HARA_TARA_STPA_Guide/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/HARA_TARA_STPA_Guide/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/HARA_TARA_STPA_Guide/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/Hardware_Reliability.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/Hardware_Reliability.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/Hardware_Reliability.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/Hardware_Reliability/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/02_System_Analysis/Hardware_Reliability/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/02_System_Analysis/Hardware_Reliability/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/CP_AP_Hybrid_Arch.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/CP_AP_Hybrid_Arch.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/CP_AP_Hybrid_Arch.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/CP_AP_Hybrid_Arch/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/CP_AP_Hybrid_Arch/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/CP_AP_Hybrid_Arch/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/DoIP_Routing_Strategy.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/DoIP_Routing_Strategy.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/DoIP_Routing_Strategy.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/DoIP_Routing_Strategy/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/03_Software_Architecture/DoIP_Routing_Strategy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/03_Software_Architecture/DoIP_Routing_Strategy/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/MISRA_Cpp_Golden_Rules.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/MISRA_Cpp_Golden_Rules.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/MISRA_Cpp_Golden_Rules.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/MISRA_Cpp_Golden_Rules/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/MISRA_Cpp_Golden_Rules/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/MISRA_Cpp_Golden_Rules/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/Memory_Mapping_Design.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/Memory_Mapping_Design.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/Memory_Mapping_Design.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/Memory_Mapping_Design/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/Memory_Mapping_Design/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/Memory_Mapping_Design/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/UDS_0x27_SecurityAccess.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/UDS_0x27_SecurityAccess.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/UDS_0x27_SecurityAccess.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/UDS_0x27_SecurityAccess/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/04_Implementation/UDS_0x27_SecurityAccess/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/04_Implementation/UDS_0x27_SecurityAccess/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/05_Verification/Testing_Strategy.en/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/05_Verification/Testing_Strategy.en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/05_Verification/Testing_Strategy.en/"/>
+    </url>
+    <url>
+        <loc>https://michaellinhq.github.io/automotive-develop-architecture/en/05_Verification/Testing_Strategy/</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://michaellinhq.github.io/automotive-develop-architecture/en/05_Verification/Testing_Strategy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://michaellinhq.github.io/automotive-develop-architecture/05_Verification/Testing_Strategy/"/>
     </url>
 </urlset>
