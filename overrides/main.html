@@ -7,6 +7,27 @@
 {% endblock %}
 
 {% block content %}
+<!-- 语言切换浮动按钮 -->
+<div class="language-switcher-float">
+  <button id="lang-toggle" class="lang-toggle-btn" aria-label="Switch Language" title="切换语言 / Switch Language">
+    <span class="lang-icon">🌐</span>
+    <span class="lang-text" id="current-lang">中文</span>
+    <span class="lang-arrow">▼</span>
+  </button>
+  <div class="lang-dropdown" id="lang-dropdown">
+    <a href="{{ config.site_url }}" class="lang-option" data-lang="zh">
+      <span class="flag-icon">🇨🇳</span>
+      <span class="lang-name">中文</span>
+      <span class="lang-check">✓</span>
+    </a>
+    <a href="{{ config.site_url }}en/" class="lang-option" data-lang="en">
+      <span class="flag-icon">🇬🇧</span>
+      <span class="lang-name">English</span>
+      <span class="lang-check">✓</span>
+    </a>
+  </div>
+</div>
+
 {{ super() }}
 
 <!-- 微信二维码弹窗 -->

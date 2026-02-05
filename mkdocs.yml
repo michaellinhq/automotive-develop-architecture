@@ -153,6 +153,7 @@ extra:
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
   - javascripts/mermaid.js
+  - javascripts/language-switcher.js
 
 extra_css:
   - stylesheets/extra.css
